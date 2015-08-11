@@ -8,6 +8,10 @@ $name = $_POST['name'];
 $id = $_POST['id'];
 $module_type = $_POST['module_type'];
 
+$name = htmlspecialchars($name);
+$username = htmlspecialchars($username);
+$module_type = htmlspecialchars($module_type);
+
 signIn($username, $password, $name, $dbConn, $id, $module_type);
 
 function signIn($username, $password, $name, $dbConn, $id, $module_type) {

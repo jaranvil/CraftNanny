@@ -9,6 +9,9 @@ $discription = $_POST['discription'];
 $id = $_POST['id'];
 
 $user_id = validateToken($token, $id);
+$event = htmlspecialchars($event);
+$ign = htmlspecialchars($ign);
+$discription = htmlspecialchars($discription);
 
 if ($user_id) {
 	enterRecord($ign, $event, $discription, $user_id, $token);

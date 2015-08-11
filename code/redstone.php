@@ -13,6 +13,13 @@ $back_input = $_POST['back_input'];
 $left_input = $_POST['left_input'];
 $right_input = $_POST['right_input'];
 
+$top_input = htmlspecialchars($top_input);
+$bottom_input = htmlspecialchars($bottom_input);
+$front_input = htmlspecialchars($front_input);
+$back_input = htmlspecialchars($back_input);
+$left_input = htmlspecialchars($left_input);
+$right_input = htmlspecialchars($right_input);
+
 $query2 = "UPDATE redstone_controls SET top_input = ".dbEsc($top_input).",  bottom_input = ".dbEsc($bottom_input).",  front_input = ".dbEsc($front_input).",  back_input = ".dbEsc($back_input).",  left_input = ".dbEsc($left_input).",  right_input = ".dbEsc($right_input)." WHERE token = '".dbEsc($token)."'";
 $result = mysql_query($query2);
 
