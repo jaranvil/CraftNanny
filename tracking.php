@@ -68,22 +68,55 @@
         
       
         <div class="large-9 columns">
-			
+
+      <div class="module_header">
      <h3 style="color:#0099FF">Connected player modules:</h3>
      Module Online/Offline status acurate within 1-2 minutes.<br>
      Player logs limited to the most recent 50 records per player per sensor. (for now)<br>
      <span style="color:red;font-wright:bold">NOTE: inventory tracking is not working yet.</span>
      <hr>
-     
+     </div>
       <ul id="log">
 				   
 			</ul>
-     
-     
-      <div class="no_connected_modules">
-        
-      </div>
-     
+
+       <div class="no_connected_modules">
+         <h3 style="color:#0099FF">Player Modules</h3>
+         <h4 style="color:#CC0000;font-weight:bold;">There are no player tracking modules connected to this account. Setup instructions are available <a href="setup.php">here</a>
+       </h4>
+         <div class="row">
+           <div class="large-6 columns">
+             <h4>What it does</h4>
+             <ul>
+               <li>Logs players that enter/leave its range</li>
+               <li>Records changes in inventory while player is in range</li>
+             </ul>
+           </div>
+           <div class="large-6 columns">
+             <h4>Setup</h4>
+             <ul>
+               <li>
+                 Place advanced computer with </strong>openperipheral sensor on top.</strong>
+               </li>
+               <li>
+                 Run module installer <a href="setup.php">from here.</a>
+               </li>
+             </ul>
+
+           </div>
+         </div>
+         <div class="row">
+           <div class="large-6 columns">
+             <img src="img/mods/player.png">
+              
+            </div>
+           <div class="large-6 columns">
+             <img src="img/screenshots/tracking.PNG">
+            </div>
+         </div>
+         
+         
+       </div>
                 
         </div>
       </div>

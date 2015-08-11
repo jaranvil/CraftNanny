@@ -75,7 +75,7 @@
           
     
         <h3 style="color:#0099FF" id="welcome"></h3>
-        <span style="font-weight:bold;font-size:16px;color:red">Setup modules <a href="setup.php">here</a></span>
+        <span style="font-weight:bold;font-size:16px;color:red">For bug reports, suggestions and questions <a href="https://github.com/jaranvil/CraftNanny/issues">post here</a></span>
        
           <!--<div class="large-12 columns notifications" id="">
              <strong style="color:#0099FF">Active Rules:</strong>

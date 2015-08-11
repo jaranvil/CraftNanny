@@ -58,11 +58,21 @@
        
        <div class="row">
             <div class="large-12 columns">
-              <h1>Modules</h1>
+              <h2 style="color:#1b9bff">In-game Modules</h2>
+              <h6 style="color:red;font-weight:bold">Modules currently only run on advanced computers</h6>
+              <ul>
+                <li><a href="#tracker">Player Tracking</a></li>
+                <li><a href="#energy">Energy Storage</a></li>
+                <li><a href="#fluid">Fluid Storage</a></li>
+                <li><a href="#redstone">Redstone Controls</a></li>
+                <li>Rednet (coming soon)</li>
+                <li>BigReactor Control (coming soon)</li>
+                <li><a href="https://github.com/jaranvil/CraftNanny/issues">Suggestions?</a></li>
+              </ul>
             </div>
           </div>
           <hr>
-        <h3 style="color:#1b9bff">Player Tracker</h3>
+        <h3 style="color:#1b9bff" id="tracker">Player Tracker</h3>
        <div class="row">
             <div class="large-6 columns">
               <h4>What it does</h4>
@@ -90,7 +100,7 @@
             </div>
           </div>
       <hr>
-         <h3 style="color:#1b9bff">Energy Storage</h3>
+         <h3 style="color:#1b9bff" id="energy">Energy Storage</h3>
        <div class="row">
             <div class="large-6 columns">
               <h4>What it does</h4>
@@ -118,7 +128,7 @@
             </div>
           </div>
            <hr>
-         <h3 style="color:#1b9bff">Fluid Storage</h3>
+         <h3 style="color:#1b9bff" id="fluid">Fluid Storage</h3>
        <div class="row">
             <div class="large-6 columns">
               <h4>What it does</h4>
@@ -146,7 +156,7 @@
             </div>
           </div>
            <hr>
-         <h3 style="color:#1b9bff">Redstone Controls</h3>
+         <h3 style="color:#1b9bff" id="redstone">Redstone Controls</h3>
        <div class="row">
             <div class="large-6 columns">
               <h4>What it does</h4>

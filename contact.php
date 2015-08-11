@@ -45,47 +45,18 @@
           <div id='cssmenu'>
                
              <ul>  
-               <li class='active'><a href='index.php'><span>Home</span></a></li>
+               <li><a href='index.php'><span>Home</span></a></li>
                <li><a href='setup.php'><span>Setup Instructions</span></a></li>
                <li><a href='modules.php'><span>In-game Modules</span></a></li>
-               <li><a href='contact.php'><span>Contact</span></a></li>
+               <li class='active'><a href='contact.php'><span>Contact</span></a></li>
                </ul>
           </div>
          
       </div>
 
         <div class="large-9 columns">
-
-      <div class="row">
-        <h3 style="color:#0099FF">Welcome to CraftNanny</h3><p>
-        
-        <div class="large-4 columns">
-          <img src="img/signup.PNG" style="width:200px">
-          <h4><a href="signup.php">1. Create an Account</a></h4>
-       </div>
-      
-        <div class="large-4 columns">
-          <img src="img/mods/player.png" style="width:200px">
-          <h4><a href="setup.php">2. Install In-game Modules</a></h4>
-         </div>
-        
-        <div class="large-4 columns">
-          <img src="img/screenshots/tracking.PNG" style="width:200px">
-          <h4>3. Control your base</h4>
-        </div>
-        <p>
-          
-      
-        </div>
-        <h3 style="color:#0099FF">Mod Requirements:</h3>
-        <ul>
-          <li>ComputerCraft 1.6x</li>
-          <li>corresponding open peripherals (for player tracking, energy, and fluid modules)</li>
-        </ul>
-        <p>
-        <h3 style="color:#0099FF">Looking for testers and collaborators</h3>
-        This is a very new platform and we need your help. Report bugs, make suggestions, or ask questions <a href="https://github.com/jaranvil/CraftNanny/issues">on our github page.</a>
-         </div>
+          <p>
+          <h4>For now, please contact us through <a href="https://github.com/jaranvil/CraftNanny/issues">our GitHub</a> or contact <a href="http://www.reddit.com/u/jaranvil">u/jaranvil</a><h4>
         </div>
  
 

@@ -68,14 +68,49 @@
         
       
         <div class="large-9 columns">
-          <h3 style="color:#0099FF">Connected energy modules:</h3>
-          Information updated every 30 seconds when modules are online.<p>
-      
+        <div class="module_header">
+            <h3 style="color:#0099FF">Connected energy modules:</h3>
+            Information updated every 30 seconds when modules are online.<p>
+        </div>
+          
         	<ul id="connected_modules">
 				   
 			     </ul>
-     
-     
+
+          <div class="no_connected_modules">
+            <h3 style="color:#0099FF">Energy Modules</h3>
+            <h4 style="color:#CC0000;font-weight:bold;">
+              There are no energy modules connected to this account. Setup instructions are available <a href="setup.php">here</a>
+            </h4>
+            <div class="row">
+              <div class="large-6 columns">
+                <h4>What it does</h4>
+                <ul>
+                  <li>Logs the storage percent of attached periperals</li>
+                  <li>IC2, Thermal Expansion, and EnderIO support</li>
+                </ul>
+              </div>
+              <div class="large-6 columns">
+                <h4>Setup</h4>
+                <ul>
+                  <li>Place advanced computer directly next to a stroage device or connected with modems</li>
+                  <li>
+                    Run module installer <a href="setup.php">from here.</a>
+                  </li>
+                </ul>
+
+              </div>
+            </div>
+            <div class="row">
+              <div class="large-6 columns">
+                <img src="img/mods/energy.png">
+              
+            </div>
+              <div class="large-6 columns">
+                <img src="img/screenshots/energy.PNG">
+            </div>
+            </div>
+          </div>
                 
         </div>
       </div>

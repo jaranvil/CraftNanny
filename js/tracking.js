@@ -68,6 +68,8 @@ function getUser() {
 }
 
 function logs(scanner, visitor) {
+    var modules = false;
+
 	theParams = {
 		a: 'logs',
 		user_id: user_id
@@ -78,14 +80,16 @@ function logs(scanner, visitor) {
 		url: "code/main.php",
 		data: theParams, 
 		dataType: 'xml', 
-		async: true,
+		async: false,
 		success: function(xml) {	
 			
 			//alert((new XMLSerializer()).serializeToString(xml));	
-
+		    
 			$(xml).find('scanner').each(function() {
 				var newScanner = scanner.clone(true);
+				modules = true;
 				
+
 				$(newScanner).find('#scanner_title').text(" " + $(this).find('name').attr('name')+" - Recent Visitors:");
 				if ($(this).find('name').attr('active') == '1') {
 					$(newScanner).find('#status_img').attr('src', 'img/online.png');
@@ -106,16 +110,21 @@ function logs(scanner, visitor) {
 					
 					$('#log').append($(newVisitor));
 				});
-				
+			
 				$('.vist_details').hide();
 				$('#log').append("<hr>");
-
 			});
 		},
 		error: function(xhr) {
 		  alert(xhr.responseText);
 		}
 	});
+	
+	if (modules) {
+	    $('.no_connected_modules').hide();
+	} else {
+	    $('.module_header').hide();
+	}
 }
 
 function playerRecord(player, token, element) {

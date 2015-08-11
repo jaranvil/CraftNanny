@@ -20,6 +20,8 @@ function initPage() {
 }
 
 function loadModules(template) {
+    var modules = false;
+
 	theParams = {
 		a: 'load_energy_modules',
 		user_id: token
@@ -30,14 +32,15 @@ function loadModules(template) {
 		url: "code/main.php",
 		data: theParams, 
 		dataType: 'xml', 
-		async: true,
+		async: false,
 		success: function(xml) {	
 			
 			//alert((new XMLSerializer()).serializeToString(xml));	
 
 			$(xml).find('modules').each(function() {
 				var newModule = template.clone(true);
-				
+				modules = true;
+
 				// Set module title
 				$(newModule).find('#module_title').text(" " + $(this).attr('name'));
 				if ($(this).attr('active') == '1') {
@@ -87,6 +90,12 @@ function loadModules(template) {
 		  //alert(xhr.responseText);
 		}
 	});
+
+	if (modules) {
+	    $('.no_connected_modules').hide();
+	} else {
+	    $('.module_header').hide();
+	}
 }
 
 function removeModule(token) {
