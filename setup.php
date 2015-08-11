@@ -45,8 +45,8 @@
           <div id='cssmenu'>
                
              <ul>  
-               <li class='active'><a href='index.php'><span>Home</span></a></li>
-               <li><a href='setup.php'><span>Setup Instructions</span></a></li>
+               <li><a href='index.php'><span>Home</span></a></li>
+               <li class='active'><a href='setup.php'><span>Setup Instructions</span></a></li>
                <li><a href='modules.php'><span>In-game Modules</span></a></li>
                <li><a href='contact.php'><span>Contact</span></a></li>
                </ul>
@@ -55,41 +55,41 @@
       </div>
 
         <div class="large-9 columns">
-        <!--<div id="slider">
-          <img src="http://placehold.it/1000x400&text=[ img 1 ]"/>
-        </div>-->
-        
-        <hr/>
        
- 
+       <div class="row">
+            <div class="large-12 columns">
+              <h1>Setup CraftNanny</h1>
+            </div>
+          </div>
+          
+       <div class="row">
+            <div class="large-12 columns">
+              <h4>1. <a href="signup.php">Create an account</a></h4>
+              <h4>2. Choose what module you want to setup <a href="modules.php">from this list</a></h4>
+              <h4>3. On an in-game advanced computer run:</h4>
+              <div style="border-style:solid;border-width:1px;background-color:#cccccc;padding:15px;width:350px;margin-left:30px;">
+                  pastebin get Q8ah3K9S install
+              </div> 
+              Followed by:
+              <div style="border-style:solid;border-width:1px;background-color:#cccccc;padding:15px;width:100px;margin-left:30px;">
+                  install
+              </div> 
+              <h4>4. Select a module from the on-screen list</h4>
+              <img src="img/setup/select_module.png"/><p>
+              <h4>5. Name the module. This will identify it on the website</h4>
+              <img src="img/setup/name_module.png"/><p>
+              <h4>6. Login to your CraftNanny Account</h4>
+               <img src="img/setup/register_module.png"/><p>
+               <h4>7. Your module will be installed. After that, it will appear on the website.</h4>
+               <img src="img/setup/complete.png"/>
+            </div>
+          </div>
       
-  
-      <div class="row">
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>Track Players</h4>
-       </div>
-      
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>Energy and Fluid Levels</h4>
-         </div>
         
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>Redstone & Rednet Controls</h4>
-        </div>
-      
-        </div>
-         </div>
+         
+         
         </div>
  
-
-
-       
-        
-
-     
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>

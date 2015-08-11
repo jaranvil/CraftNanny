@@ -37,7 +37,7 @@
         <p>
           <div id='cssmenu'>
             <ul>
-               <li><a href='signin.php'><span>Login</span></a></li>
+               <li class='active'><a href='signin.php'><span>Login</span></a></li>
                <li><a href='signup.php'><span>Create Account</span></a></li>
              </ul>
           </div>
@@ -45,7 +45,7 @@
           <div id='cssmenu'>
                
              <ul>  
-               <li class='active'><a href='index.php'><span>Home</span></a></li>
+               <li><a href='index.php'><span>Home</span></a></li>
                <li><a href='setup.php'><span>Setup Instructions</span></a></li>
                <li><a href='modules.php'><span>In-game Modules</span></a></li>
                <li><a href='contact.php'><span>Contact</span></a></li>
@@ -53,50 +53,25 @@
           </div>
          
       </div>
+    
 
         <div class="large-9 columns">
-        <!--<div id="slider">
-          <img src="http://placehold.it/1000x400&text=[ img 1 ]"/>
-        </div>-->
-        
-        <hr/>
-       
- 
-      
-  
-      <div class="row">
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>Track Players</h4>
-       </div>
-      
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>Energy and Fluid Levels</h4>
-         </div>
-        
-        <div class="large-4 columns">
-          <img src="http://placehold.it/400x300&text=[img]"/>
-          <h4>Redstone & Rednet Controls</h4>
+          <h1>Login</h1>
+          <input type="text" class="create_user_input" name="username_login" id="username_login" placeholder="Username" style="background-color:#444444;color:#ffffff;width:300px;"/>
+          <input type="password" class="create_user_input" name="password_login" id="password_login" placeholder="password" style="background-color:#444444;color:#ffffff;width:300px;"/>
+          <div class="large-3 columns">
+                <a href="" class="radius button right sidebar_btn_form" id="login_btn_2">Login</a>
+              </div>
         </div>
-      
-        </div>
-         </div>
-        </div>
- 
+      </div>
 
-
-       
-        
-
-     
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
     <script>
       $(document).foundation();
     </script>
-
+    <script src="js/login.js"></script>
 	
   </body>
 </html>

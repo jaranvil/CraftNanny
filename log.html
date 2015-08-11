@@ -1,0 +1,151 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+    
+  </head>
+  <body>
+    
+       <div class="row">
+        <div class="large-12 columns">
+          <!--<div class="nav-bar right">
+           <ul class="button-group">
+             <li><a href="#" class="button">Setup Instructions</a></li>
+            </ul>
+          </div>-->
+          <h1>"Base Logger" <small>What's a good name?</small></h1>
+          <hr/>
+        </div>
+      </div>
+     
+      <div class="row">
+        <div class="large-9 columns" role="content">
+ 
+			<article id="log_article">
+			To Dos
+			<ul>
+				<li>Name the system, get that domain</li>
+				<li>Track inventory additions</li>
+				<li>timestamps formatted nicer</li>
+				<li>Add alowed players from web</li>
+				<li>clear old logs</li>
+				<li>search logs with custom date/time range</li>
+				<li>delete sensors from site</li>
+				<li>general formatting. make things look nicer</li>
+				<li>better user controls. (lost passwords, link scanners to second account?)</li>
+				<li>Control scanner redstone outputs from web interface?</li>
+				<li>log other data from sensor?</li>
+			</ul>
+				
+     		<p>
+           	<ul id="log">
+				   
+			</ul>
+ 
+          </article>
+
+     
+        </div>
+     
+         
+     
+     
+         
+     
+        <aside class="large-3 columns">
+			
+			
+		<div width="100%" id="user_data">
+			<label class="sidebar_header">Connected Scanners:</label>
+			<ul class="connections">
+				
+			</ul> 
+		</div>
+			
+     	<a href="#" class="sidebar_btn" id="" onClick="">Setup Instructions</a>
+	 	<a href="#" class="sidebar_btn" id="login_btn" onClick="">Login</a>
+		 
+		  <table width="100%" id="sidebar_login">
+								<tr>
+									<td><label class="sidebar_header">Login</label></td>
+								</tr>
+								<tr>
+									<td class="sidebar_td" style="width:30%">
+										<center>
+										<input type="text" class="create_user_input" name="username_login" id="username_login" placeholder="Username" />
+										</center>
+									</td>
+
+								</tr>
+								<tr>
+									<td class="sidebar_td">
+										<center>
+										<input type="password" class="create_user_input" name="password_login" id="password_login" placeholder="password" />
+										</center>									
+									</td>
+
+								</tr>
+								<tr>
+									<td>
+										<a href="#" class="sidebar_btn_form" id="login_btn_2" onClick="">Login</a>
+									</td>
+							</table>
+		 
+		<a href="#" class="sidebar_btn" id="signup_btn" onClick="">Sign-up</a>
+	 
+        
+							
+							<table width="100%" id="sidebar_create">
+								<tr>
+									<td><label class="sidebar_header">Create Account</label></td>
+								</tr>
+								<tr>
+									<td class="sidebar_td" style="width:30%">
+										<center>
+										<input type="text" class="create_user_input" name="username" id="username" placeholder="Username" />
+										</center>
+									</td>
+
+								</tr>
+								<tr>
+									<td class="sidebar_td">
+										<center>
+										<input type="password" class="create_user_input" name="password" id="password" placeholder="password" />
+										</center>									
+									</td>
+
+								</tr>
+								<tr>
+									<td class="sidebar_td">
+										<center>
+										<input type="password" class="create_user_input" name="password2" id="password2" placeholder="verify password" />
+										</center>
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<a href="#" class="sidebar_btn_form" id="create_btn" onClick="">Create Account</a>
+									</td>
+							</table>
+							<a href="#" class="sidebar_btn" id="logout_btn" onClick="signOut()">Log-out</a>
+     
+        </aside>
+     
+         
+      </div>
+     
+       
+
+    
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+	<script src="js/main.js"></script>
+  </body>
+</html>
