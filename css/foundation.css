@@ -6227,8 +6227,8 @@ th.hide-for-touch {
 .modules {
   border-style: solid;
   border-width: 1px;
-  /*width: 30%;
-  margin-left:25px;*/
+  width: 30%;
+  margin-left:25px;
   
  -webkit-border-radius: 20px;
 -moz-border-radius: 20px;

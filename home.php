@@ -146,8 +146,8 @@
           </div>
         </div>
         
-        <div class="large-4 columns modules" id="fluid_modules">
-         <strong style="color:#0099FF">stub</strong>
+        <div class="large-4 columns">
+         <!--<strong style="color:#0099FF">stub</strong>-->
          </div>
       
         </div>
