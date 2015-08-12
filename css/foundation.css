@@ -6526,3 +6526,6 @@ meter::-webkit-meter-optimum-value {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1b9bff', endColorstr='#167CCC',GradientType=0);
 }
 
+.rules_select {
+  width:200px;
+}

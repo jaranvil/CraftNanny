@@ -19,7 +19,7 @@
   </head>
   <body>
     
-       <div class="row">
+      <div class="row">
         <div class="large-12 columns top_bar">
          <span style="font-weight:bold;font-size:36px;color:#1b9bff">
           
@@ -58,17 +58,18 @@
           <div id='cssmenu'>
                
              <ul>  
-               <li class='active'><a href='redstone.php'><span>Redstone Controls</span></a></li>
+               <li><a href='redstone.php'><span>Redstone Controls</span></a></li>
                <li><a href='rednet.php'><span>Rednet Controls</span></a></li>
                <li><a href='custom.php'><span>Custom Module</span></a></li>
+               
                </ul>
           </div>
           <soan id="menu_headers">Admin</span>
           <div id='cssmenu'>
                
              <ul>  
-               <li class='last'><a href='rules.php'><span>Set Rules</span></a></li>
-               <li class='last'><a href='notifications.php'><span>Set Notifications</span></a></li>
+               <li  class='active'><a href='rules.php'><span>Set Rules</span></a></li>
+               <li><a href='notifications.php'><span>Set Notifications</span></a></li>
                <li class='last'><a href='logout.php'><span>Log out</span></a></li>
             </ul>
           </div>
@@ -76,17 +77,36 @@
       </div>
         
       
-        <div class="large-9 columns">
-          <h3 style="color:#0099FF">Connected redstone modules:</h3>
-          In-game modules update every 30 seconds.<p>
-      
-        	<ul id="connected_modules">
-				   
-			     </ul>
-     
-     
-                
+      <div class="large-9 columns">
+        
+        <h2 style="color:#1b9bff">Rule Based Actions</h2><p>
+        
+        <h4 style="color:#1b9bff">Energy Storage Rules</h4>
+        
+        <div class="rules_container" style="border-style:solid;border-width:1px;width:100%;padding:10px;">
+          <div class="no_rules" style="text-align:center;color:#666666;font-weight:bold;width:100%">
+            No active energy rules.
+          </div>  
+          
+          <p>
+            
+          <h5 style="color:#1b9bff">Add Rule:</h5>
+          <span>Module:
+            <select class="rules_select">
+              <option value="" disabled selected>Select Energy Module</option>
+            </select>
+          </span>
+            <br>
+          <span>Triggered when:
+            <select class="rules_select">
+              <option value="" disabled selected>Is greater than</option>
+            </select>
+          </span>
         </div>
+        
+        
+        
+          
       </div>
         
 
@@ -98,7 +118,6 @@
       $(document).foundation();
     </script>
     <script src="js/login_check.js"></script>
-    <script src="js/redstone.js"></script>
 	
   </body>
 </html>
