@@ -115,7 +115,7 @@
         
         <div class="large-4 columns modules" id="energy_modules">
           <strong style="color:#0099FF">Energy Modules:</strong>
-          <div class="no_modules">
+          <div class="no_modules" id="no_energy_modules">
             <span>No Energy Modules Connected</span>
           </div>
         </div>

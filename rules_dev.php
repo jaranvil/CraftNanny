@@ -91,17 +91,29 @@
           <p>
             
           <h5 style="color:#1b9bff">Add Rule:</h5>
-          <span>Module:
-            <select class="rules_select">
-              <option value="" disabled selected>Select Energy Module</option>
-            </select>
-          </span>
-            <br>
-          <span>Triggered when:
-            <select class="rules_select">
-              <option value="" disabled selected>Is greater than</option>
-            </select>
-          </span>
+          
+          <div class="row">
+            <div class="large-6 columns">
+              Module:
+            </div>
+            <div class="large-6 columns">
+              <select class="rules_select">
+                <option value="" disabled selected>Select Energy Module</option>
+              </select>
+            </div>
+          </div>
+            
+          <div class="row">
+            <div class="large-6 columns">
+              Triggered when:
+            </div>
+            <div class="large-6 columns">
+              <select class="rules_select">
+                <option value="" disabled selected>Is greater than</option>
+              </select>
+            </div>
+          </div>
+            
         </div>
         
         
