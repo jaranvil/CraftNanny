@@ -6249,7 +6249,7 @@ border-radius: 20px;
 box-shadow: 10px 10px 5px -4px rgba(0,0,0,0.56);
 }
 
-#sensor_modules, #energy_modules, #fluid_modules {
+#sensor_modules, #energy_modules, #fluid_modules, #redstone_modules {
   list-style: none;
 }
 
