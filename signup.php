@@ -29,19 +29,12 @@
       <div class="large-3 columns">
         <p>
           <div id='cssmenu'>
-            <ul>
-               <li><a href='signin.php'><span>Login</span></a></li>
-               <li class='active'><a href='signup.php'><span>Create Account</span></a></li>
-             </ul>
-          </div>
-          <p>
-          <div id='cssmenu'>
                
              <ul>  
-               <li><a href='index.php'><span>Home</span></a></li>
+               <li><a href='index.php'><span>Homepage</span></a></li>
+               <li><a href='home.php'><span>My Dashboard</span></a></li>
                <li><a href='setup.php'><span>Setup Instructions</span></a></li>
                <li><a href='modules.php'><span>In-game Modules</span></a></li>
-               <li><a href='contact.php'><span>Contact</span></a></li>
                </ul>
           </div>
          
@@ -61,9 +54,50 @@
       </div>
 
 
+      </div>
 
+            <footer style="margin-top:200px;">
+        <div class="large-12 columns footer_top">
+          <div class="row">
+            <div class="large-6 columns">
+              
+            </div>
+            <div class="large-6 columns">
+              
+            </div>
+          </div>
+        </div> 
+        <div class="large-12 columns footer_middle">
+          <div class="row">
+            <div class="large-2 columns">
+              <img src="img/skin.PNG" style="height:200px;">
+            </div>
+            <div class="large-4 columns" style="height:200px">
+              <p><h2 style="font-weight:bold;color:#cccccc;">CraftNanny.org</h2>
+              <p style="color:#cccccc;font-size:18px;">Contribute to this open-source project on GitHub!</p>
+              <a href="https://github.com/jaranvil/CraftNanny"><img src="img/git.png" style="width:100px;"></a>
+            </div>
+            <div class="large-6 columns">
 
-     
+            </div>
+            </div>
+        </div> 
+        <div class="large-12 columns footer_bottom">
+          <div class="row">
+            <div class="large-3 columns">
+             
+            </div>
+            <div class="large-9 columns" style="color:#cccccc">
+              <ul class="inline-list right" style="margin-top:40px;">
+                <li><a href="home.php" style="color:#cccccc">My Dashboard</a>  </li>
+                <li><a href="setup.php" style="color:#cccccc">Setup Instructions</a>  </li>
+                <li><a href="modules.php" style="color:#cccccc">Modules</a> </li>
+                <li><a href="https://github.com/jaranvil/CraftNanny/issues" style="color:#cccccc">Report Issues </a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </footer>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>

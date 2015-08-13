@@ -205,7 +205,7 @@
             <div class="large-2 columns">
               <img src="img/skin.PNG" style="height:200px;">
             </div>
-            <div class="large-4 columns" style="height:200px">
+            <div class="large-4 columns" style="border-right:2px solid;height:200px">
               <p><h2 style="font-weight:bold;color:#cccccc;">CraftNanny.org</h2>
               <p style="color:#cccccc;font-size:18px;">Contribute to this open-source project on GitHub!</p>
               <a href="https://github.com/jaranvil/CraftNanny"><img src="img/git.png" style="width:100px;"></a>
