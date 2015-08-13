@@ -18,7 +18,7 @@ function loginUser() {
 		url: "code/main.php",
 		data: theParams, 
 		dataType: 'xml', 
-		async: true,
+		async: false,
 		success: function(xml) {		
 			//alert((new XMLSerializer()).serializeToString(xml));	
 			var token = $(xml).find('token').text();
