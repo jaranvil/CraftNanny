@@ -138,11 +138,16 @@ function getBat(t,batName)
   
   phone_home(batName, batContentName, percent)
   print(batName," ",batContentName," :")
-  powerBar= round(((term.getSize()*percent)/100),0)
-  draw_line_term(6, 7, powerBar , colors.green)
-  draw_line_term(6+powerBar,7,term.getSize()-powerBar-6,colors.red)
-  draw_text_term(1,7,percent.." % ",colors.lime,colors.black)
-  term.setBackgroundColor(colors.black)
+  if powerBar < 50 then 
+		draw_line_term(6, 7, powerBar , colors.green)
+		draw_line_term(6+powerBar,7,term.getSize()-powerBar-6,colors.red)
+		draw_text_term(1,7,percent.." % ",colors.lime,colors.black)
+		term.setBackgroundColor(colors.black)
+	else
+		draw_line_term(6, 7, powerBar -6 , colors.green)
+		draw_text_term(1,7,percent.." % ",colors.lime,colors.black)
+		term.setBackgroundColor(colors.black)
+	end
   return true
 	
 end
