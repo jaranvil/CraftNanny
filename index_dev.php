@@ -22,16 +22,23 @@
     
         <div class="large-12 columns top_bar">
           <div class="row">
-           <span style="font-weight:bold;font-size:36px;color:#1b9bff">
-             CraftNanny
-           </span>
-            <span style="font-weight:bold;font-size:16px;color:#ffffff">
-             Monitor and Control Minecraft Online through ComputerCraft
-           </span>
-          </div>
+         <span style="font-weight:bold;font-size:36px;color:#1b9bff">
+          
+           CraftNanny
+         </span>
+          <span style="font-weight:bold;font-size:16px;color:#ffffff">
+          
+           Monitor and Control Minecraft Online through ComputerCraft
+         </span>
         </div>
+ 
+      </div>
+      
         <div class="large-12 columns thin_bar">
+         
         </div>
+
+
 
       <div class="row">  
       <div class="large-3 columns">
@@ -58,24 +65,23 @@
         <div class="large-9 columns">
 
       <div class="row">
-        <h2 style="color:#0099FF">Welcome to CraftNanny</h2>
-       <hr>
+        <h1 style="color:#0099FF">Welcome to CraftNanny</h1><p>
         
         <div class="large-4 columns">
-          <img src="img/signup.PNG" style="width:200px;height:200px;">
+          <img src="img/signup.PNG" style="width:200px">
           <h4><a href="signup.php">1. Create an Account</a></h4>
        </div>
       
         <div class="large-4 columns">
-          <img src="img/comp.png" style="width:200px;height:200px;">
-          <h4><a href="setup.php">2. Install Modules</a></h4>
+          <img src="img/mods/player.png" style="width:200px">
+          <h4><a href="setup.php">2. Install In-game Modules</a></h4>
          </div>
         
         <div class="large-4 columns">
-          <img src="img/screenshots/tracking.PNG" style="width:200px;height:200px;">
+          <img src="img/screenshots/tracking.PNG" style="width:200px">
           <h4>3. Control your base</h4>
         </div>
-       <hr>
+        <p>
           
       
         </div>
@@ -91,37 +97,8 @@
         </div>
  
 
-        <p>
-       <footer>
-        <div class="large-12 columns footer_top">
-          <div class="row">
-            <div class="large-6 columns">
-              
-            </div>
-            <div class="large-6 columns">
-              <!--<ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-              </ul>-->
-            </div>
-          </div>
-        </div> 
-        <div class="large-12 columns footer_bottom">
-            <div class="large-6 columns">
-              test
-            </div>
-            <div class="large-6 columns">
-              <!--<ul class="inline-list right">
-                <li><a href="#">Link 1</a></li>
-                <li><a href="#">Link 2</a></li>
-                <li><a href="#">Link 3</a></li>
-                <li><a href="#">Link 4</a></li>
-              </ul>-->
-            </div>
-        </div> 
-      </footer>
+
+       
         
 
      

@@ -18,27 +18,18 @@
 </script>
   </head>
   <body>
-    
-    <div class="row">
-        <div class="large-12 columns top_bar">
-         <span style="font-weight:bold;font-size:36px;color:#1b9bff">
-          
-           CraftNanny
-         </span>
-          <span style="font-weight:bold;font-size:16px;color:#ffffff">
-          
-           Monitor and Control Minecraft Online through ComputerCraft
-         </span>
+    <div class="large-12 columns top_bar">
+          <div class="row">
+           <span style="font-weight:bold;font-size:36px;color:#1b9bff">
+             CraftNanny
+           </span>
+            <span style="font-weight:bold;font-size:16px;color:#ffffff">
+             Monitor and Control Minecraft Online through ComputerCraft
+           </span>
+          </div>
         </div>
- 
-      </div>
-      
-      <div class="row">
         <div class="large-12 columns thin_bar">
-         
         </div>
- 
-      </div>
 
 
       <div class="row">  
