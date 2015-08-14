@@ -1,2 +1,2 @@
 # CraftNanny
-Control and monitor minecraft through ComputerCraft
+www.CraftNanny.org Control and monitor minecraft through ComputerCraft

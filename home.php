@@ -19,22 +19,18 @@
   </head>
   <body>
     
-      <div class="row">
-        <div class="large-12 columns top_bar">
-         <span style="font-weight:bold;font-size:36px;color:#1b9bff">
-          
-           CraftNanny
-         </span>
+      <div class="large-12 columns top_bar">
+          <div class="row">
+           <span style="font-weight:bold;font-size:36px;color:#1b9bff">
+             CraftNanny
+           </span>
+            <span style="font-weight:bold;font-size:16px;color:#ffffff">
+             Monitor and Control Minecraft Online through ComputerCraft
+           </span>
+          </div>
         </div>
- 
-      </div>
-      
-      <div class="row">
         <div class="large-12 columns thin_bar">
-         
         </div>
- 
-      </div>
 
 
       <div class="row">  
@@ -42,7 +38,9 @@
         <p>
           <div id='cssmenu'>
             <ul>
-               <li class='active'><a href='home.php'><span>Home</span></a></li>
+              <li><a href='index.php'><span>Homepage</span></a></li>
+              <li class='active'><a href='home.php'><span>My Dashboard</span></a></li>
+              <li><a href='setup.php'><span>Setup Instructions</span></a></li>
              </ul>
           </div>
           <soan id="menu_headers">Monitoring</span>
@@ -115,7 +113,7 @@
         
         <div class="large-4 columns modules" id="energy_modules">
           <strong style="color:#0099FF">Energy Modules:</strong>
-          <div class="no_modules">
+          <div class="no_modules" id="no_energy_modules">
             <span>No Energy Modules Connected</span>
           </div>
         </div>
@@ -146,8 +144,8 @@
           </div>
         </div>
         
-        <div class="large-4 columns modules" id="fluid_modules">
-         <strong style="color:#0099FF">stub</strong>
+        <div class="large-4 columns">
+         <!--<strong style="color:#0099FF">stub</strong>-->
          </div>
       
         </div>
@@ -160,8 +158,49 @@
         </div>
       </div>
         
+      </div>
+      <footer>
+        <div class="large-12 columns footer_top">
+          <div class="row">
+            <div class="large-6 columns">
+              
+            </div>
+            <div class="large-6 columns">
+              
+            </div>
+          </div>
+        </div> 
+        <div class="large-12 columns footer_middle">
+          <div class="row">
+            <div class="large-2 columns">
+              <img src="img/skin.PNG" style="height:200px;">
+            </div>
+            <div class="large-4 columns" style="height:200px">
+              <p><h2 style="font-weight:bold;color:#cccccc;">CraftNanny.org</h2>
+              <p style="color:#cccccc;font-size:18px;">Contribute to this open-source project on GitHub!</p>
+              <a href="https://github.com/jaranvil/CraftNanny"><img src="img/git.png" style="width:100px;"></a>
+            </div>
+            <div class="large-6 columns">
 
-     
+            </div>
+            </div>
+        </div> 
+        <div class="large-12 columns footer_bottom">
+          <div class="row">
+            <div class="large-3 columns">
+             
+            </div>
+            <div class="large-9 columns" style="color:#cccccc">
+              <ul class="inline-list right" style="margin-top:40px;">
+                <li><a href="home.php" style="color:#cccccc">My Dashboard</a>  </li>
+                <li><a href="setup.php" style="color:#cccccc">Setup Instructions</a>  </li>
+                <li><a href="modules.php" style="color:#cccccc">Modules</a> </li>
+                <li><a href="https://github.com/jaranvil/CraftNanny/issues" style="color:#cccccc">Report Issues </a></li>
+              </ul>
+            </div>
+          </div>
+        </div> 
+      </footer>
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>

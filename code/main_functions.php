@@ -10,45 +10,6 @@ function dbError(&$xmlDoc, &$xmlNode, $theMessage) {
 	$xmlNode->appendChild($errorNode);
 }
 
-function createToken($user_id) {
-	
-}
-
-function PHPMailer($xmlDoc, $name, $email, $subject, $message) {
-	 require("class.phpmailer.php");
-	 $parentNode = $xmlDoc->createElement('status');
-
-    $mail = new PHPMailer();
-
-    $mail->IsSMTP();  // telling the class to use SMTP
-    $mail->SMTPAuth   = true; // SMTP authentication
-	$mail->SMTPSecure = "tls"; 
-    $mail->Host       = "smtp.gmail.com"; // SMTP server
-    $mail->Port       = 587; // SMTP Port
-    $mail->Username   = "jared314@gmail.com"; // SMTP account username
-    $mail->Password   = "lnvfcqnotxajucwy";        // SMTP account password
-
-    $mail->SetFrom('jared314@gmail.com'); // FROM
-
-
-    $mail->AddAddress('jared314@gmail.com', 'Jared'); // recipient email
-
-    $mail->Subject    = 'Contact Form Submission'; // email subject
-    $mail->Body       = 'FROM: ' . $name . " " . $email . " Subject: " . $subject . " Message: " .$message;
-
-    if(!$mail->Send()) {
-      $statusNode = $xmlDoc->createElement('mail_status', 0);
-      echo 'Mailer error: ' . $mail->ErrorInfo;
-    } else {
-      echo 'Message has been sent.';
-	  $statusNode = $xmlDoc->createElement('mail_status', 1);
-    }
-	
-	$parentNode->appendChild($statusNode);
-	
-	return $parent;	
-}
-
 function doesUserExist($dbconn, $xmlDoc, $id, $type) {
 	$recordDataNode = $xmlDoc->createElement('recorddata');
 	

@@ -44,7 +44,7 @@ function bars()
 	draw_line_term(1, 1, 51, colors.lime)
 	draw_line_term(1, 19, 51, colors.lime)
 	draw_text_term(20, 1, 'Base Scanner', colors.gray, colors.lime)
-	draw_text_term(13, 19, 'jaredeverett.ca/base_logger', colors.gray, colors.lime)
+	draw_text_term(13, 19, 'craftnanny.org', colors.gray, colors.lime)
 end
 
 function scanner_screen()
@@ -266,7 +266,6 @@ function start()
 end
 
 start()
-
 
 
 

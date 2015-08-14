@@ -22,6 +22,7 @@ function initPage() {
 	getPlayerModules();
 	getRedstoneModules();
 	gerFluidModules($moduleTemplate);
+	getEnergyModules($moduleTemplate); 
 }
 
 function getUser() {
@@ -158,6 +159,48 @@ function gerFluidModules(template) {
 			});
 			if (counter != 0) {
 				$('#no_fluid_modules').hide();
+			}
+		},
+		error: function(xhr) {
+		  alert(xhr.responseText);
+		}
+	});
+}
+
+function getEnergyModules(template) {
+
+	theParams = {
+		a: 'getConnections',
+		user_id: token,
+		module_type: '2'
+	}
+
+	$.ajax({
+		type: "POST",
+		url: "code/main.php",
+		data: theParams, 
+		dataType: 'xml', 
+		async: true,
+		success: function(xml) {	
+			
+			//alert((new XMLSerializer()).serializeToString(xml));	
+			var counter = 0;
+			$(xml).find('connection').each(function() {
+				var newModule = template.clone(true);
+							
+				if ($(this).attr('active') == '1') {
+					//$(newModule).find('#status_img').attr('src', 'img/online.png');	
+					$('#energy_modules').append("<li><img src='img/online.png' style='width:10px'>"+" "+$(this).attr('name')+"</li>");
+				} else {
+					//$(newModule).find('#status_img').attr('src', 'img/offine.png');
+					$('#energy_modules').append("<li><img src='img/offline.png' style='width:10px'>"+" "+$(this).attr('name')+"</li>");
+				}
+				//$(newModule).find('#module_title').text($(this).attr('name'));
+				//$('#fluid_modules').append($(newModule));
+				counter = counter + 1;
+			});
+			if (counter != 0) {
+				$('#no_energy_modules').hide();
 			}
 		},
 		error: function(xhr) {
