@@ -99,7 +99,7 @@
       <hr>
       
        <div class="row">
-         <h3 style="color:#1b9bff;font-weight:bold;" id="tracker">2. Energy Storage</h3>
+         <h3 style="color:#1b9bff;font-weight:bold;" id="energy">2. Energy Storage</h3>
             <div class="large-6 columns">
               <h4>What it does</h4>
               <ul>
@@ -108,7 +108,7 @@
               </ul>
              <h4>Setup</h4>
               <ul>
-                <li>Place advanced computer directly next to a stroage device or connected with modems</li>
+                <li>Place advanced computer directly next to a storage device or connected with modems</li>
                 <li>Run module installer <a href="setup.php">from here.</a></li>
               </ul>
               <h4>Notes</h4>
@@ -128,7 +128,7 @@
            <hr>
            
          <div class="row">
-         <h3 style="color:#1b9bff;font-weight:bold;" id="tracker">3. Fluid Storage</h3>
+         <h3 style="color:#1b9bff;font-weight:bold;" id="fluid">3. Fluid Storage</h3>
             <div class="large-6 columns">
               <h4>What it does</h4>
               <ul>
@@ -136,7 +136,7 @@
               </ul>
             <h4>Setup</h4>
               <ul>
-                <li>Place advanced computer directly next to a stroage device or connected with modems</li>
+                <li>Place advanced computer directly next to a storage device or connected with modems</li>
                 <li>Run module installer <a href="setup.php">from here.</a></li>
               </ul>
               <h4>Notes</h4>
@@ -156,14 +156,14 @@
            <hr>
            
             <div class="row">
-         <h3 style="color:#1b9bff;font-weight:bold;" id="tracker">4. Redstone Controls</h3>
+         <h3 style="color:#1b9bff;font-weight:bold;" id="redstone">4. Redstone Controls</h3>
             <div class="large-6 columns">
               <h4>What it does</h4>
               <ul>
                 <li>No periperals needed. Install this module on any advanced computer</li>
                 <li>Toggle the redstone output of each side from the web</li>
                 <li>Give custom names to each side</li>
-                <li>Monitor the current redstone inputs of each sise</li>
+                <li>Monitor the current redstone inputs of each side</li>
               </ul>
             <h4>Setup</h4>
               <ul>

@@ -1,14 +1,15 @@
 <?php
 
-require_once('connection.php');
-
 $username = $_POST['user'];
 
 $username = htmlspecialchars($username);
 
+require_once('connection.php');
 $salt = '';
 $query = "select salt from users where username = '".dbEsc($username). "';";	
 $result = mysql_query($query);
+
+
 
 if ($result) {
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);

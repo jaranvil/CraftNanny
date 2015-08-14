@@ -40,7 +40,7 @@ function signIn(token) {
 }
 
 $(document).ready(function() {
-	$('#login_btn_2').click(function(e) {
+	$('#login_btn').click(function(e) {
 		loginUser();
 		e.preventDefault();
 	});

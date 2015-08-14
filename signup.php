@@ -48,9 +48,9 @@
           <input type="text"  name="email" id="email" placeholder="E-mail (optional)" class="create_user_input" style="width:300px;background-color:#444444;color:#ffffff"/>
           <input type="password" class="create_user_input" name="password" id="password" placeholder="password" style="background-color:#444444;color:#ffffff;width:300px;"/>
           <input type="password" class="create_user_input" name="password2" id="password2" placeholder="verify password" style="background-color:#444444;color:#ffffff;width:300px;"/>
-         <div class="large-3 columns">
-                <a href="#" class="radius button right sidebar_btn_form" id="create_btn" onClick="createUser()">Create</a>
-              </div>
+
+          <a href="#" class="radius button sidebar_btn_form" id="login_btn" onClick="createUser()">Create</a>
+
       </div>
 
 

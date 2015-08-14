@@ -19,7 +19,7 @@
   </head>
   <body>
     
-      <div class="large-12 columns top_bar">
+ <div class="large-12 columns top_bar">
           <div class="row">
            <span style="font-weight:bold;font-size:36px;color:#1b9bff">
              CraftNanny
@@ -39,7 +39,7 @@
           <div id='cssmenu'>
             <ul>
               <li><a href='index.php'><span>Homepage</span></a></li>
-              <li class='active'><a href='home.php'><span>My Dashboard</span></a></li>
+              <li><a href='home.php'><span>My Dashboard</span></a></li>
               <li><a href='setup.php'><span>Setup Instructions</span></a></li>
              </ul>
           </div>
@@ -66,7 +66,7 @@
           <div id='cssmenu'>
                
              <ul>  
-               <li class='last'><a href='redstone_events.php'><span>Redstone Events</span></a></li>
+               <li class='active'><a href='redstone_events.php'><span>Redstone Events</span></a></li>
                <li class='last'><a href='notifications.php'><span>Email Notifications</span></a></li>
             </ul>
           </div>
@@ -75,100 +75,58 @@
         
       
       <div class="large-9 columns">
-        <div class="row">
-          
-          
-          
-    
-        <h3 style="color:#0099FF" id="welcome"></h3>
-        <span style="font-weight:bold;font-size:16px;color:red">For bug reports, suggestions and questions <a href="https://github.com/jaranvil/CraftNanny/issues">post here</a></span>
-       
-          <!--<div class="large-12 columns notifications" id="">
-             <strong style="color:#0099FF">Active Rules:</strong>
-             <p>
-             Coming soon. 
-             Examples: energy storage reaches 0%, set redstone module output
-          </div>
-        </div> 
-        <p>
-  		  <div class="row">
-          <div class="large-12 columns notifications" id="">
-             <strong style="color:#0099FF">Email Notifications:</strong>
-             <p>
-             Coming soon. 
-             Set email alerts for certain events. Energy or fluid reach x% or player x enters base.
-          </div>
-        </div>-->
-        <p>
-    <div class="row">
-      <div class="large-12 columns notifications">
-        <label style="color:#1b9bff;font-size:18px;font-weight:bold;">Redstone Events</label>
+        
+        <h2 style="color:#1b9bff">Redstone Events</h2>
+        <h6>Set a redstone module to respone to energy or fluid storage levels.</h6>
+   
+        <hr>
+        
+        <label style="color:#1b9bff;font-size:20px;font-weight:bold;">Set Events</label>
         <div class="rules_container" id="active_events" >
-          <div class="no_events" style="text-align:center;color:#cccccc;font-weight:bold;width:100%">
-            No active redstone events.<p>
+          <div class="no_events" style="text-align:center;color:#666666;font-weight:bold;width:100%">
+            No active redstone events.
           </div>  
         </div>
-      </div>
-    </div>
+     
+        <label style="color:#1b9bff;font-size:20px;font-weight:bold;margin-top:25px;">Create Event</label>
+        <div class="rules_container" style="width:100%;padding:10px;">
+          <div class="row">
+            <div class="large-6 columns">
+              <label style="font-size:20px;font-weight:bold;">Trigger</label>
+              <select class="rules_select" id="storage_modules">
+                <option value="" disabled selected>Select energy/fluid module</option>
+              </select>
+              <select class="rules_select" id="event_type">
+                <option value="1">when storage is greater than</option>
+                <option value="2">when storage is less than</option>
+              </select>
+              <input type="text" placeholder="00" id="trigger_value" style="background-color:#444444;color:#ffffff;width:50px;display:inline"/> %
+            </div>
+            <div class="large-6 columns">
+              <label style="font-size:20px;font-weight:bold;">Action</label>
+              <select class="rules_select" id="redstone_modules">
+                <option value="" disabled selected>Select redstone module</option>
+              </select>
+              <select class="rules_select" id="module_side">
+                <option value="" disabled selected>Choose module side</option>
+              </select>
+              <select class="rules_select" id="output_value">
+                <option value="" disabled selected>Select output</option>
+                <option value="1">True</option>
+                <option value="0">False</option>
+              </select>
+               
+            </div>
+          </div>
+          <div class="row">
+            <center><button type="submit" id="login_btn">Create</button></center>
+          </div>
+        </div>
         
-        <p>
           
-  		  <div class="row">
-        <div class="large-4 columns modules" id="sensor_modules">
-           <strong style="color:#0099FF">Player Modules:</strong>
-           <div class="no_modules" id="no_player_modules">
-            <span>No Player Modules Connected</span>
-          </div>
-        </div>
-        
-        <div class="large-4 columns modules" id="energy_modules">
-          <strong style="color:#0099FF">Energy Modules:</strong>
-          <div class="no_modules" id="no_energy_modules">
-            <span>No Energy Modules Connected</span>
-          </div>
-        </div>
-        
-        <div class="large-4 columns modules" id="fluid_modules">
-          <strong style="color:#0099FF">Fluid Modules:</strong>
-          <div class="no_modules" id = "no_fluid_modules">
-            <span>No Fluid Modules Connected</span>
-          </div>
-         </div>
-      
-        </div>
-        
-        <p>
-          
-       <div class="row">
-        <div class="large-4 columns modules" id="redstone_modules">
-           <strong style="color:#0099FF">Redstone Modules:</strong>
-           <div class="no_modules" id="no_redstone_modules">
-            <span>No Redstone Modules Connected</span>
-          </div>
-        </div>
-        
-        <div class="large-4 columns modules" id="energy_modules">
-          <strong style="color:#0099FF">Rednet Modules</strong>
-          <div class="no_modules" id="no_player_modules">
-            <span>No Rednet Modules Connected</span>
-          </div>
-        </div>
-        
-        <div class="large-4 columns">
-         <!--<strong style="color:#0099FF">stub</strong>-->
-         </div>
-      
-        </div>
-        
-     
-      
-     
-     
-                
-        </div>
       </div>
-        
       </div>
+      
       <footer>
         <div class="large-12 columns footer_top">
           <div class="row">
@@ -211,6 +169,7 @@
           </div>
         </div> 
       </footer>
+     
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
@@ -218,7 +177,7 @@
       $(document).foundation();
     </script>
     <script src="js/login_check.js"></script>
-    <script src="js/home.js"></script>
+    <script src="js/redstone_events.js"></script>
 	
   </body>
 </html>

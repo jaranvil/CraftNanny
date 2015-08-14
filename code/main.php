@@ -48,11 +48,6 @@ $xmlDoc->appendChild($xmlRoot);
 
 //open database connection
 require_once('connection.php');
-// $dbConn = mysql_connect('localhost', '', '')
-// 	or die(print_r(mysql_error()));
-// mysql_select_db('base_logger') or die(print_r(mysql_error()));
-
-//$dbConn = mysqli_connect("localhost","root","lockview","repost") or die("Error " . mysqli_error($dbConn)); 
 
 $query = '';
 
@@ -166,7 +161,22 @@ foreach ($actionArray as $action) {
 			$xmlRoot->appendChild(removeModule($dbconn, $xmlDoc, $_REQUEST['token']));
 			
 			break;
+		case "redstone_event_dropdowns":
+			$xmlRoot->appendChild(redstoneEventDropdowns($dbconn, $xmlDoc, $_REQUEST['user_id']));
 			
+			break;
+		case "get_redstone_sides":
+			$xmlRoot->appendChild(getRedstoneSides($dbconn, $xmlDoc, $_REQUEST['token']));
+			
+			break;
+		case "create_redstone_event":
+			$xmlRoot->appendChild(createRedstoneEvent($dbconn, $xmlDoc, $_REQUEST['storage_token'], $_REQUEST['redstone_token'], $_REQUEST['trigger_value'], $_REQUEST['side'], $_REQUEST['output_value'], $_REQUEST['event_type'], $_REQUEST['user_id']));
+			
+			break;
+		case "load_redstone_events":
+			$xmlRoot->appendChild(loadRedstoneEvents($dbconn, $xmlDoc, $_REQUEST['user_id']));
+			
+			break;
 		default:
 
 			break; 

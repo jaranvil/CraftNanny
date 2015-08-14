@@ -424,4 +424,99 @@ function removeModule($dbconn, $xmlDoc, $token) {
 	return $recordDataNode;	
 }
 
+function redstoneEventDropdowns($dbconn, $xmlDoc, $user_id) {
+	$recordDataNode = $xmlDoc->createElement('recorddata');
+	
+	$query = "SELECT * from tokens where user_id = '".dbEsc($user_id)."' AND (module_type = '2' OR module_type = '3')";
+	$result = mysql_query($query);
+
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$controlNode = $xmlDoc->createElement('storage_modules');
+		$controlNode->setAttribute('name', $row['computer_name']);
+		$controlNode->setAttribute('token', $row['token']);
+		$recordDataNode->appendChild($controlNode);	
+	}
+	
+	$query = "SELECT * from tokens where user_id = '".dbEsc($user_id)."' AND module_type = '4'";
+	$result = mysql_query($query);
+	
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$controlNode = $xmlDoc->createElement('redstone_modules');
+		$controlNode->setAttribute('name', $row['computer_name']);
+		$controlNode->setAttribute('token', $row['token']);
+		$recordDataNode->appendChild($controlNode);	
+	}
+	
+	return $recordDataNode;	
+}
+
+function getRedstoneSides($dbconn, $xmlDoc, $token) {
+	$recordDataNode = $xmlDoc->createElement('recorddata');
+	
+	$query = "SELECT * from redstone_controls where token = '".dbEsc($token)."'";
+	$result = mysql_query($query);
+
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$controlNode = $xmlDoc->createElement('modules');
+		$controlNode->setAttribute('top_name', $row['top_name']);
+		$controlNode->setAttribute('bottom_name', $row['bottom_name']);
+		$controlNode->setAttribute('front_name', $row['front_name']);
+		$controlNode->setAttribute('back_name', $row['back_name']);
+		$controlNode->setAttribute('left_name', $row['left_name']);
+		$controlNode->setAttribute('right_name', $row['right_name']);
+		$recordDataNode->appendChild($controlNode);	
+	}
+	
+	return $recordDataNode;	
+}
+
+function createRedstoneEvent($dbconn, $xmlDoc, $storageToken, $redstoneToken, $triggerValue, $side, $outputValue, $eventType, $user_id) {
+	$recordDataNode = $xmlDoc->createElement('recorddata');
+	
+	$query = "INSERT INTO redstone_events (redstone_token, storage_token, event_type, trigger_value, side, output, user_id) VALUES " .
+				"('".dbEsc($redstoneToken)."', '".dbEsC($storageToken)."', ".dbEsc($eventType).", ".dbEsc($triggerValue).", '".dbEsc($side)."', ".dbEsc($outputValue).", '".dbEsc($user_id)."')";
+	$result = mysql_query($query);
+	
+	if (!($result)) {
+		$statusNode = $xmlDoc->createElement('status', $query);
+		
+		dbError($xmlDoc, $recordDataNode, mysql_error());
+	} else {
+		$statusNode = $xmlDoc->createElement('status', 'success');
+	}
+	
+	$recordDataNode->appendChild($statusNode);
+	
+	return $recordDataNode;	
+}
+
+function loadRedstoneEvents($dbconn, $xmlDoc, $user_id) {
+	$recordDataNode = $xmlDoc->createElement('recorddata');
+	
+	$query = "SELECT * from redstone_events where user_id = '".dbEsc($user_id)."'";
+	$result = mysql_query($query);
+
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$controlNode = $xmlDoc->createElement('events');
+		
+		$query2 = "SELECT computer_name FROM tokens WHERE token = '".dbEsc($row['redstone_token'])."'";
+		$result2 = mysql_query($query2);
+		$row2 = mysql_fetch_array($result2, MYSQL_ASSOC);
+		$controlNode->setAttribute('redstone_module', $row2['computer_name']);
+		
+		$query3 = "SELECT computer_name FROM tokens WHERE token = '".dbEsc($row['storage_token'])."'";
+		$result3 = mysql_query($query3);
+		$row3 = mysql_fetch_array($result3, MYSQL_ASSOC);
+		$controlNode->setAttribute('storage_module', $row3['computer_name']);
+
+		$controlNode->setAttribute('event_type', $row['event_type']);
+		$controlNode->setAttribute('trigger_value', $row['trigger_value']);
+		$controlNode->setAttribute('side', $row['side']);
+		$controlNode->setAttribute('output', $row['output']);
+		$recordDataNode->appendChild($controlNode);	
+	}
+	
+	return $recordDataNode;	
+}
+
 ?>

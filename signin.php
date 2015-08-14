@@ -44,9 +44,9 @@
           <h1>Login</h1>
           <input type="text" class="create_user_input" name="username_login" id="username_login" placeholder="Username" style="background-color:#444444;color:#ffffff;width:300px;"/>
           <input type="password" class="create_user_input" name="password_login" id="password_login" placeholder="password" style="background-color:#444444;color:#ffffff;width:300px;"/>
-          <div class="large-3 columns">
-                <a href="" class="radius button right sidebar_btn_form" id="login_btn_2">Login</a>
-              </div>
+
+          <a href="" class="radius button sidebar_btn_form" id="login_btn">Login</a>&nbsp;&nbsp;&nbsp;
+          <a href="signup.php">Create an Account</a>
         </div>
       </div>
 

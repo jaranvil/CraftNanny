@@ -46,7 +46,8 @@
               <li>Track players</li>
               <li>Monitor energy and fluid storage.</li>
               <li>Control redstone outputs</li>
-              <li>Create rulee-based actions</li>
+              <li>Create rule-based events (redstone triggers, emails)</li>
+              <li>More modules in development</li>
             </ul>
 
             
@@ -71,7 +72,7 @@
 
         <div class="row">
           <div class="large-4 columns">
-            <h3 style="color:#0099FF">Setup</h3>
+            <h3 style="color:#0099FF">How it works</h3>
             
               <ul style="list-style-type:decimal">
                 <li>Create an account <a href="signup.php" style="font-weight:bold">here.</a></li>

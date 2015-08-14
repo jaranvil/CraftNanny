@@ -18,6 +18,7 @@ local module_name = ''
 local username = ''
 local type = ''
 local updating = false
+local user = ''
 
 function draw_text_term(x, y, text, text_color, bg_color)
   term.setTextColor(text_color)
