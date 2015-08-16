@@ -5,7 +5,7 @@ require_once('connection.php');
 $token = $_POST['token'];
 $ign = $_POST['ign'];
 $event = $_POST['event'];
-$discription = $_POST['discription'];
+$discription = $_POST['description'];
 $id = $_POST['id'];
 
 $user_id = validateToken($token, $id);
@@ -30,7 +30,7 @@ function enterRecord($ign, $event, $discription, $user_id, $token) {
 }
 
 function validateToken($token, $id) {
-	$query = "select user_id from tokens where token = '".dbEsc($token). "' AND computer_id = ".dbEsc($id). ";";	
+	$query = "select user_id from tokens where token = '".dbEsc($token). "' AND computer_id = ".dbEsc($id). ";";
 	$result = mysql_query($query);
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
 	return $row['user_id'];
