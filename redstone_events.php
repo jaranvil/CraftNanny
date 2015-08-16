@@ -77,11 +77,11 @@
       <div class="large-9 columns">
         
         <h2 style="color:#1b9bff">Redstone Events</h2>
-        <h6>Set a redstone module to respone to energy or fluid storage levels.</h6>
+        <h6>Set a redstone module to respond to energy or fluid storage levels.</h6>
    
         <hr>
         
-        <label style="color:#1b9bff;font-size:20px;font-weight:bold;">Set Events</label>
+        <label style="color:#1b9bff;font-size:20px;font-weight:bold;">Active Events</label>
         <div class="rules_container" id="active_events" >
           <div class="no_events" style="text-align:center;color:#666666;font-weight:bold;width:100%">
             No active redstone events.

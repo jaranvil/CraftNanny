@@ -146,7 +146,18 @@ function loadEvents(template) {
 					inequality = '<';
 				}
 				
+				if ($(this).attr('redstone_active') == '1' && $(this).attr('storage_active') == '1') {
+					$(newModule).find('#status_img').attr('src', 'img/online.png');
+				}
+				
+				var event = $(this);
 				$(newModule).find('#event_title').text("When " + $(this).attr('storage_module') + " " + inequality + " " + $(this).attr('trigger_value') + "%, " + $(this).attr('redstone_module') + " " + $(this).attr('side') + " set to " + output);
+				$(newModule).find('#remove_link').click(function(e) {
+					if (removeEvent(event)) {
+						$(newModule).hide(500);
+					}
+					e.preventDefault()
+				});
 				$('#active_events').append($(newModule));
 				
 				counter = counter + 1;
@@ -238,6 +249,32 @@ function populateDropdowns() {
 	});
 }
 
+function removeEvent(event) {
+	var result = false;
+	if (confirm('Are you sure you want to delete this event?')) {
+		theParams = {
+			a: 'remove_event',
+			event_id: $(event).attr('event_id')
+		}
+	
+		$.ajax({
+			type: "POST",
+			url: "code/main.php",
+			data: theParams, 
+			dataType: 'xml', 
+			async: false,
+			success: function(xml) {	
+				//alert((new XMLSerializer()).serializeToString(xml));	
+				result = true;
+			},
+			error: function(xhr) {
+			 // alert(xhr.responseText);
+			 
+			}
+		});
+	} 
+	return result;
+}
 
 $(document).ready(function() {
 	initPage();

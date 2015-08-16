@@ -42,6 +42,7 @@
           <div class="large-6 columns">
             <p>
             <h2 style="color:#0099FF;font-weight:bold;">Your Minecraft Base. <br>Online.</h2>
+            Use ComputerCraft to:
             <ul>
               <li>Track players</li>
               <li>Monitor energy and fluid storage.</li>

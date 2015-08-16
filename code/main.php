@@ -177,6 +177,10 @@ foreach ($actionArray as $action) {
 			$xmlRoot->appendChild(loadRedstoneEvents($dbconn, $xmlDoc, $_REQUEST['user_id']));
 			
 			break;
+		case "remove_event":
+			$xmlRoot->appendChild(removeEvent($dbconn, $xmlDoc, $_REQUEST['event_id']));
+			
+			break;
 		default:
 
 			break; 

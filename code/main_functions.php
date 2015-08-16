@@ -499,22 +499,58 @@ function loadRedstoneEvents($dbconn, $xmlDoc, $user_id) {
 	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
 		$controlNode = $xmlDoc->createElement('events');
 		
-		$query2 = "SELECT computer_name FROM tokens WHERE token = '".dbEsc($row['redstone_token'])."'";
+		$query2 = "SELECT computer_name, last_seen FROM tokens WHERE token = '".dbEsc($row['redstone_token'])."'";
 		$result2 = mysql_query($query2);
 		$row2 = mysql_fetch_array($result2, MYSQL_ASSOC);
 		$controlNode->setAttribute('redstone_module', $row2['computer_name']);
+		$datetime1 = strtotime($row2['last_seen']);
+		$datetime2 = time();
+		$diff = $datetime2-$datetime1;
+		if ($diff > 200) {
+			$controlNode->setAttribute('redstone_active', false);
+		} else {
+			$controlNode->setAttribute('redstone_active', true);
+		}
 		
-		$query3 = "SELECT computer_name FROM tokens WHERE token = '".dbEsc($row['storage_token'])."'";
+		$query3 = "SELECT computer_name, last_seen FROM tokens WHERE token = '".dbEsc($row['storage_token'])."'";
 		$result3 = mysql_query($query3);
 		$row3 = mysql_fetch_array($result3, MYSQL_ASSOC);
 		$controlNode->setAttribute('storage_module', $row3['computer_name']);
-
+		$datetime1 = strtotime($row3['last_seen']);
+		$datetime2 = time();
+		$diff = $datetime2-$datetime1;
+		if ($diff > 200) {
+			$controlNode->setAttribute('storage_active', false);
+		} else {
+			$controlNode->setAttribute('storage_active', true);
+		}
+		
 		$controlNode->setAttribute('event_type', $row['event_type']);
 		$controlNode->setAttribute('trigger_value', $row['trigger_value']);
 		$controlNode->setAttribute('side', $row['side']);
 		$controlNode->setAttribute('output', $row['output']);
+		$controlNode->setAttribute('event_id', $row['event_id']);
 		$recordDataNode->appendChild($controlNode);	
 	}
+	
+	return $recordDataNode;	
+}
+
+function removeEvent($dbconn, $xmlDoc, $event_id) {
+	$recordDataNode = $xmlDoc->createElement('recorddata');
+	
+	$query2 = "DELETE FROM redstone_events WHERE event_id = '".dbEsc($event_id)."'";
+	$result2 = mysql_query($query2);
+	
+	if (!($result2)) {
+			$statusNode = $xmlDoc->createElement('status', $query);
+			
+			dbError($xmlDoc, $recordDataNode, mysql_error());
+		} else {
+			$statusNode = $xmlDoc->createElement('status', 'success');
+		}
+	
+	$recordDataNode->appendChild($statusNode);
 	
 	return $recordDataNode;	
 }

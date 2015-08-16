@@ -36,12 +36,14 @@ function loadControls(template) {
 			//alert((new XMLSerializer()).serializeToString(xml));	
 			var counter = 1;
 			$(xml).find('controls').each(function() {
-				var newModule = template.clone(true);
+				var newModule = template.clone(true),
+					active = false;
 				
 				// Set module title
 				$(newModule).find('#module_title').text(" " + $(this).attr('name'));
 				if ($(this).attr('active') == '1') {
 					$(newModule).find('#status_img').attr('src', 'img/online.png');
+					active = true;
 				}
 				
 				// set side names
@@ -289,9 +291,15 @@ function loadControls(template) {
 				});
 				
 				$('#connected_modules').append($(newModule));
-				$('#connected_modules').append("<hr>");
 				
 				counter = counter + 6;
+				
+				if (!active) {
+					$(newModule).find('div.redstone_block').block({
+					    message: '<strong>module not loaded</strong>',
+						css: { border: '3px solid #a00' } 
+					});
+				}
 			});
 		},
 		error: function(xhr) {

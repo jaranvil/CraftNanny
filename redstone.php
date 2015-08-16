@@ -94,6 +94,7 @@
       $(document).foundation();
     </script>
     <script src="js/login_check.js"></script>
+    <script src="js/block.js"></script>
     <script src="js/redstone.js"></script>
 	
   </body>

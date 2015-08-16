@@ -23,7 +23,9 @@ $right_input = htmlspecialchars($right_input);
 $query2 = "UPDATE redstone_controls SET top_input = ".dbEsc($top_input).",  bottom_input = ".dbEsc($bottom_input).",  front_input = ".dbEsc($front_input).",  back_input = ".dbEsc($back_input).",  left_input = ".dbEsc($left_input).",  right_input = ".dbEsc($right_input)." WHERE token = '".dbEsc($token)."'";
 $result = mysql_query($query2);
 
+checkEvents($token);
 getRsOutputs($token, $id, $version);
+
 
 function getRsOutputs($token, $id, $version) {
 	$query = "UPDATE tokens SET last_seen = NOW() WHERE token = '".dbEsc($token)."' AND computer_id = ".dbEsc($id);
@@ -39,8 +41,75 @@ function getRsOutputs($token, $id, $version) {
 	} else {
 		echo 'error: token update query failed.';
 	}
+}
+
+function checkEvents($token) {
+	$query = "SELECT * from redstone_events WHERE redstone_token = '".dbEsc($token)."'";
+	$result = mysql_query($query);
 	
-	
+	while ($row = mysql_fetch_array($result, MYSQL_ASSOC)) {
+		$query2 = "SELECT * FROM tanks WHERE token = '".$row['storage_token']."'";
+		$result2 = mysql_query($query2);
+		$row2 = mysql_fetch_array($result2, MYSQL_ASSOC);
+		
+		$side = '';
+		if ($row['side'] == 'top_side') {
+			$side = 'top';
+		}
+		if ($row['side'] == 'bottom_side') {
+			$side = 'bottom';
+		}
+		if ($row['side'] == 'front_side') {
+			$side = 'front';
+		}
+		if ($row['side'] == 'back_side') {
+			$side = 'back';
+		}
+		
+		if ($row['event_type'] == '1') {
+			if (intval($row2['percent']) > intval($row['trigger_value'])) {
+				$query3 = "UPDATE redstone_controls SET ".$side." = ".$row['output'];
+				$result3 = mysql_query($query3);
+			}
+		}
+		if ($row['event_type'] == '2') {
+			if (intval($row2['percent']) < intval($row['trigger_value'])) {
+				$query3 = "UPDATE redstone_controls SET ".$side." = ".$row['output'];
+				$result3 = mysql_query($query3);
+			}
+		}
+		
+		$query2 = "SELECT * FROM energy_storage WHERE token = '".$row['storage_token']."'";
+		$result2 = mysql_query($query2);
+		$row2 = mysql_fetch_array($result2, MYSQL_ASSOC);
+		
+		$side = '';
+		if ($row['side'] == 'top_side') {
+			$side = 'top';
+		}
+		if ($row['side'] == 'bottom_side') {
+			$side = 'bottom';
+		}
+		if ($row['side'] == 'front_side') {
+			$side = 'front';
+		}
+		if ($row['side'] == 'back_side') {
+			$side = 'back';
+		}
+		
+		if ($row['event_type'] == '1') {
+			if (intval($row2['percent']) > intval($row['trigger_value'])) {
+				$query3 = "UPDATE redstone_controls SET ".$side." = ".$row['output'];
+				$result3 = mysql_query($query3);
+			}
+		}
+		if ($row['event_type'] == '2') {
+			if (intval($row2['percent']) < intval($row['trigger_value'])) {
+				$query3 = "UPDATE redstone_controls SET ".$side." = ".$row['output'];
+				$result3 = mysql_query($query3);
+			}
+		}
+	}
 }
 
 function dbEsc($theString) {

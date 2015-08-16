@@ -38,13 +38,15 @@ function loadModules(template) {
 			//alert((new XMLSerializer()).serializeToString(xml));	
 
 			$(xml).find('modules').each(function() {
-				var newModule = template.clone(true);
+				var newModule = template.clone(true),
+					active = false;
 				modules = true;
 
 				// Set module title
 				$(newModule).find('#module_title').text(" " + $(this).attr('name'));
 				if ($(this).attr('active') == '1') {
 					$(newModule).find('#status_img').attr('src', 'img/online.png');
+					active = true;
 				}
 				$(newModule).find('#level_meter').attr('value', $(this).attr('percent'));
 				
@@ -73,9 +75,13 @@ function loadModules(template) {
 				});
 				
 				$('#connected_modules').append($(newModule));
-				$('#connected_modules').append("<hr>");
 				
-				
+				if (!active) {
+					$(newModule).find('div.fluid_module_block').block({
+					    message: '<strong>module not loaded</strong>',
+						css: { border: '3px solid #a00' } 
+					});
+				}
 			});
 		},
 		error: function(xhr) {

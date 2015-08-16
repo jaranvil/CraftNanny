@@ -104,8 +104,8 @@
       <div class="large-12 columns notifications">
         <label style="color:#1b9bff;font-size:18px;font-weight:bold;">Redstone Events</label>
         <div class="rules_container" id="active_events" >
-          <div class="no_events" style="text-align:center;color:#cccccc;font-weight:bold;width:100%">
-            No active redstone events.<p>
+          <div class="no_events" style="text-align:center;color:#666666;font-weight:bold;width:100%">
+            No active redstone events. <a href="redstone_events.php">Create one.</a><p>
           </div>  
         </div>
       </div>
