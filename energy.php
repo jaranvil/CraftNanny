@@ -18,8 +18,8 @@
 </script>
   </head>
   <body>
-    
-       <div class="large-12 columns top_bar">
+
+      <div class="large-12 columns top_bar">
           <div class="row">
            <span style="font-weight:bold;font-size:36px;color:#1b9bff">
              CraftNanny
@@ -33,18 +33,21 @@
         </div>
 
 
-      <div class="row">  
+      <div class="row">
       <div class="large-3 columns">
         <p>
           <div id='cssmenu'>
             <ul>
-               <li><a href='home.php'><span>Home</span></a></li>
+              <li><a href='index.php'><span>Homepage</span></a></li>
+              <li><a href='home.php'><span>My Dashboard</span></a></li>
+              <li><a href='setup.php'><span>Setup Instructions</span></a></li>
              </ul>
           </div>
-          <soan id="menu_headers">Monitoring</span>
+
+         <soan id="menu_headers">Monitoring</span>
           <div id='cssmenu'>
-               
-             <ul>  
+
+             <ul>
                <li><a href='tracking.php'><span>Player Tracking</span></a></li>
                <li class='active'><a href='energy.php'><span>Energy Storage</span></a></li>
                <li><a href='fluid.php'><span>Fluid Storage</span></a></li>
@@ -52,34 +55,32 @@
           </div>
           <soan id="menu_headers">Controls</span>
           <div id='cssmenu'>
-               
-             <ul>  
+
+             <ul>
                <li><a href='redstone.php'><span>Redstone Controls</span></a></li>
                <li><a href='rednet.php'><span>Rednet Controls</span></a></li>
-               <li><a href='custom.php'><span>Custom Module</span></a></li>
+               <li><a href='bigreactors.php'><span>BigReactors Control</span></a></li>
                </ul>
           </div>
-          <soan id="menu_headers">Admin</span>
+          <soan id="menu_headers">Events</span>
           <div id='cssmenu'>
-               
-             <ul>  
-               <li class='last'><a href='rules.php'><span>Set Rules</span></a></li>
-               <li class='last'><a href='notifications.php'><span>Set Notifications</span></a></li>
-               <li class='last'><a href='logout.php'><span>Log out</span></a></li>
+
+             <ul>
+               <li class='last'><a href='redstone_events.php'><span>Redstone Events</span></a></li>
+               <li class='last'><a href='notifications.php'><span>Email Notifications</span></a></li>
             </ul>
           </div>
-   
+
       </div>
-        
-      
+
         <div class="large-9 columns">
         <div class="module_header">
             <h3 style="color:#0099FF">Connected energy modules:</h3>
             Information updated every 30 seconds when modules are online.<p>
         </div>
-          
+
         	<ul id="connected_modules">
-				   
+
 			     </ul>
 
           <div class="no_connected_modules">
@@ -109,18 +110,60 @@
             <div class="row">
               <div class="large-6 columns">
                 <img src="img/mods/energy.png">
-              
+
             </div>
               <div class="large-6 columns">
                 <img src="img/screenshots/energy.PNG">
             </div>
             </div>
           </div>
-                
+
         </div>
       </div>
-        
-     
+
+      <footer>
+        <div class="large-12 columns footer_top">
+          <div class="row">
+            <div class="large-6 columns">
+
+            </div>
+            <div class="large-6 columns">
+
+            </div>
+          </div>
+        </div>
+        <div class="large-12 columns footer_middle">
+          <div class="row">
+            <div class="large-2 columns">
+              <img src="img/skin.PNG" style="height:200px;">
+            </div>
+            <div class="large-4 columns" style="height:200px">
+              <p><h2 style="font-weight:bold;color:#cccccc;">CraftNanny.org</h2>
+              <p style="color:#cccccc;font-size:18px;">Contribute to this open-source project on GitHub!</p>
+              <a href="https://github.com/jaranvil/CraftNanny"><img src="img/git.png" style="width:100px;"></a>
+            </div>
+            <div class="large-6 columns">
+
+            </div>
+            </div>
+        </div>
+        <div class="large-12 columns footer_bottom">
+          <div class="row">
+            <div class="large-3 columns">
+
+            </div>
+            <div class="large-9 columns" style="color:#cccccc">
+              <ul class="inline-list right" style="margin-top:40px;">
+                <li><a href="home.php" style="color:#cccccc">My Dashboard</a>  </li>
+                <li><a href="setup.php" style="color:#cccccc">Setup Instructions</a>  </li>
+                <li><a href="modules.php" style="color:#cccccc">Modules</a> </li>
+                <li><a href="https://github.com/jaranvil/CraftNanny/issues" style="color:#cccccc">Report Issues </a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
@@ -130,6 +173,6 @@
     <script src="js/login_check.js"></script>
     <script src="js/block.js"></script>
     <script src="js/energy.js"></script>
-	
+
   </body>
 </html>

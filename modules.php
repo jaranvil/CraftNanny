@@ -18,8 +18,8 @@
 </script>
   </head>
   <body>
-    
-    
+
+
         <div class="large-12 columns top_bar">
           <div class="row">
            <span style="font-weight:bold;font-size:36px;color:#1b9bff">
@@ -32,13 +32,13 @@
         </div>
         <div class="large-12 columns thin_bar">
         </div>
-        
+
         <div class="row">
           <div class="large-3 columns">
             <p>
             <div id='cssmenu'>
-               
-             <ul>  
+
+             <ul>
                <li><a href='index.php'><span>Homepage</span></a></li>
                <li><a href='home.php'><span>My Dashboard</span></a></li>
                <li><a href='setup.php'><span>Setup Instructions</span></a></li>
@@ -61,13 +61,13 @@
               </ul>
           </div>
         </div>
-        
-        
-       
-       
+
+
+
+
           </div>
           <hr>
-        
+
        <div class="row">
          <h3 style="color:#1b9bff;font-weight:bold;" id="tracker">1. Player Tracker</h3>
             <div class="large-6 columns">
@@ -91,13 +91,13 @@
             <div class="large-6 columns">
               <img src="img/mods/player.png" class="module_img">
               <img src="img/screenshots/tracking.PNG"  class="module_img">
-              
+
             </div>
           </div>
         </div>
-          
+
       <hr>
-      
+
        <div class="row">
          <h3 style="color:#1b9bff;font-weight:bold;" id="energy">2. Energy Storage</h3>
             <div class="large-6 columns">
@@ -120,13 +120,13 @@
             <div class="large-6 columns">
               <img src="img/mods/energy.png" class="module_img">
               <img src="img/screenshots/energy.PNG" class="module_img">
-              
+
             </div>
           </div>
         </div>
-        
+
            <hr>
-           
+
          <div class="row">
          <h3 style="color:#1b9bff;font-weight:bold;" id="fluid">3. Fluid Storage</h3>
             <div class="large-6 columns">
@@ -148,13 +148,13 @@
             <div class="large-6 columns">
               <img src="img/mods/fluid.png" class="module_img">
               <img src="img/screenshots/fluid.PNG" class="module_img">
-              
+
             </div>
           </div>
         </div>
 
            <hr>
-           
+
             <div class="row">
          <h3 style="color:#1b9bff;font-weight:bold;" id="redstone">4. Redstone Controls</h3>
             <div class="large-6 columns">
@@ -168,38 +168,34 @@
             <h4>Setup</h4>
               <ul>
                 <li>Place advanced computer and run module installer</li>
-      
+
               </ul>
-              <h4>Notes</h4>
-              <ul>
-                <li><strong>Requires OpenPeripherals</strong></li>
-                <li>Currently, each module can only connect to one peripheral</li>
-              </ul>
+          
             </div>
             <div class="large-6 columns">
               <img src="img/screenshots/redstone.PNG" class="module_img">
-              
+
             </div>
           </div>
         </div>
 
-        
-         
-         
+
+
+
         </div>
-       
+
 
       <footer>
         <div class="large-12 columns footer_top">
           <div class="row">
             <div class="large-6 columns">
-              
+
             </div>
             <div class="large-6 columns">
-              
+
             </div>
           </div>
-        </div> 
+        </div>
         <div class="large-12 columns footer_middle">
           <div class="row">
             <div class="large-2 columns">
@@ -214,11 +210,11 @@
 
             </div>
             </div>
-        </div> 
+        </div>
         <div class="large-12 columns footer_bottom">
           <div class="row">
             <div class="large-3 columns">
-             
+
             </div>
             <div class="large-9 columns" style="color:#cccccc">
               <ul class="inline-list right" style="margin-top:40px;">
@@ -229,11 +225,11 @@
               </ul>
             </div>
           </div>
-        </div> 
+        </div>
       </footer>
-        
 
-     
+
+
 
     <script src="js/vendor/jquery.js"></script>
     <script src="js/foundation.min.js"></script>
@@ -242,6 +238,6 @@
       $(document).foundation();
     </script>
 
-	
+
   </body>
 </html>

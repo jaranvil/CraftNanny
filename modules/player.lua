@@ -23,7 +23,7 @@ local scanner = ''
 -- owenrs username on website
 local username = ''
 -- currently installed version
-local version = 1
+local version = 2
 
 -- write text to the terminal screen
 function draw_text_term(x, y, text, text_color, bg_color)
