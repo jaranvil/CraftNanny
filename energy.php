@@ -16,6 +16,16 @@
   ga('send', 'pageview');
 
 </script>
+
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <script src="js/login_check.js"></script>
+  <script src="js/block.js"></script>
+  <script src="js/energy.js"></script>
+
   </head>
   <body>
 
@@ -165,14 +175,7 @@
       </footer>
 
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-    <script src="js/login_check.js"></script>
-    <script src="js/block.js"></script>
-    <script src="js/energy.js"></script>
+
 
   </body>
 </html>

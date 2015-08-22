@@ -3,23 +3,25 @@ var $blankModule;
 
 function initPage() {
 	var module_template;
-	
+
 	$.ajax({
-		type: 'GET', 
-		url: 'redstone_template.html', 
-		async: false, 
+		type: 'GET',
+		url: 'redstone_template.html',
+		async: false,
 		contentType   :  'text/html',
   		dataType      :  'html',
 		success: function(theHtml) {
 			module_template = theHtml;
 		}
-	}); 
-	
+	});
+
 	$blankModule = $(module_template);
 	loadControls($blankModule);
 }
 
 function loadControls(template) {
+	var modules = false;
+
 	theParams = {
 		a: 'load_redstone_controls',
 		user_id: token
@@ -28,24 +30,25 @@ function loadControls(template) {
 	$.ajax({
 		type: "POST",
 		url: "code/main.php",
-		data: theParams, 
-		dataType: 'xml', 
-		async: true,
-		success: function(xml) {	
-			
-			//alert((new XMLSerializer()).serializeToString(xml));	
+		data: theParams,
+		dataType: 'xml',
+		async: false,
+		success: function(xml) {
+
+			//alert((new XMLSerializer()).serializeToString(xml));
 			var counter = 1;
 			$(xml).find('controls').each(function() {
 				var newModule = template.clone(true),
 					active = false;
-				
+				modules = true;
+
 				// Set module title
 				$(newModule).find('#module_title').text(" " + $(this).attr('name'));
 				if ($(this).attr('active') == '1') {
 					$(newModule).find('#status_img').attr('src', 'img/online.png');
 					active = true;
 				}
-				
+
 				// set side names
 				$(newModule).find('#top_name').text($(this).attr('top_name'));
 				$(newModule).find('#bottom_name').text($(this).attr('bottom_name'));
@@ -53,7 +56,7 @@ function loadControls(template) {
 				$(newModule).find('#back_name').text($(this).attr('back_name'));
 				$(newModule).find('#left_name').text($(this).attr('left_name'));
 				$(newModule).find('#right_name').text($(this).attr('right_name'));
-				
+
 				// Give toggle switches unique names
 				$(newModule).find('#cmn-toggle-1').attr('id', 'cmn-toggle-'+counter);
 				$(newModule).find('.toggle_label_1').attr('for', 'cmn-toggle-'+counter);
@@ -67,7 +70,7 @@ function loadControls(template) {
 				$(newModule).find('.toggle_label_5').attr('for', 'cmn-toggle-'+(counter+4));
 				$(newModule).find('#cmn-toggle-6').attr('id', 'cmn-toggle-'+(counter+5));
 				$(newModule).find('.toggle_label_6').attr('for', 'cmn-toggle-'+(counter+5));
-				
+
 				// Switch toggles on that need to be
 				if ($(this).attr('top') == '1') {
 					$(newModule).find('#cmn-toggle-'+counter).prop('checked', true);
@@ -87,7 +90,7 @@ function loadControls(template) {
 				if ($(this).attr('right') == '1') {
 					$(newModule).find('#cmn-toggle-'+(counter+5)).prop('checked', true);
 				}
-				
+
 				// handle toggle switch changes
 				var redstone_token = $(this).attr('token');
 				$(newModule).find('#cmn-toggle-'+counter).click(function() {
@@ -132,9 +135,9 @@ function loadControls(template) {
 						updateOutput(redstone_token, 'right_side', 0, 'int');
 					}
 				});
-				
+
 				// Edit name buttons
-				
+
 				// top
 				$(newModule).find('#name_mouseover_top').hide();
 				$(newModule).find('#edit_top').click(function(e) {
@@ -237,7 +240,7 @@ function loadControls(template) {
 					$(newModule).find('#name_mouseover_right').hide(500);
 					e.preventDefault();
 				});
-				
+
 				// Side inputs
 				if($(this).attr('top_input')=='1') {
 					$(newModule).find('#top_input').css('color', 'red');
@@ -281,7 +284,7 @@ function loadControls(template) {
 					$(newModule).find('#right_input').css('color', '#999999');
 					$(newModule).find('#right_input').text('False');
 				}
-				
+
 				var node = $(this);
 				$(newModule).find('#remove_link').click(function(e) {
 					if (removeModule($(node).attr('token'))) {
@@ -289,15 +292,15 @@ function loadControls(template) {
 					}
 					e.preventDefault();
 				});
-				
+
 				$('#connected_modules').append($(newModule));
-				
+
 				counter = counter + 6;
-				
+
 				if (!active) {
 					$(newModule).find('div.redstone_block').block({
 					    message: '<strong>module not loaded</strong>',
-						css: { border: '3px solid #a00' } 
+						css: { border: '3px solid #a00' }
 					});
 				}
 			});
@@ -306,13 +309,19 @@ function loadControls(template) {
 		  //alert(xhr.responseText);
 		}
 	});
+
+	if (modules) {
+	    $('.no_connected_modules').hide();
+	} else {
+	    $('.module_header').hide();
+	}
 }
 
 function updateOutput(redstone_token, side, value, val_type) {
 	theParams = {
 		a: 'setRedstoneOutput',
 		token: redstone_token,
-		side: side, 
+		side: side,
 		value: value,
 		val_type: val_type
 	}
@@ -320,11 +329,11 @@ function updateOutput(redstone_token, side, value, val_type) {
 	$.ajax({
 		type: "POST",
 		url: "code/main.php",
-		data: theParams, 
-		dataType: 'xml', 
+		data: theParams,
+		dataType: 'xml',
 		async: true,
-		success: function(xml) {	
-			//alert((new XMLSerializer()).serializeToString(xml));	
+		success: function(xml) {
+			//alert((new XMLSerializer()).serializeToString(xml));
 		},
 		error: function(xhr) {
 		  //alert(xhr.responseText);
@@ -339,23 +348,23 @@ function removeModule(token) {
 			a: 'remove_module',
 			token: token
 		}
-	
+
 		$.ajax({
 			type: "POST",
 			url: "code/main.php",
-			data: theParams, 
-			dataType: 'xml', 
+			data: theParams,
+			dataType: 'xml',
 			async: false,
-			success: function(xml) {	
-				//alert((new XMLSerializer()).serializeToString(xml));	
+			success: function(xml) {
+				//alert((new XMLSerializer()).serializeToString(xml));
 				result = true;
 			},
 			error: function(xhr) {
 			  alert(xhr.responseText);
-			 
+
 			}
 		});
-	} 
+	}
 	return result;
 }
 

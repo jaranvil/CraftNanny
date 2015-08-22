@@ -58,21 +58,7 @@ function loadModules(template) {
 					$(newModule).find('#energy_type').text("Unknown energy type");
 				}
 
-
 				$(newModule).find('#percent').text(" " + $(this).attr('percent') + "%");
-
-				// if ($(this).attr('fluid_type') == 'Creosote Oil') {
-				// 	$(newModule).find('#bucket_img').attr('src', 'img/buckets/creosote.png');
-				// }
-				// if ($(this).attr('fluid_type') == 'Water') {
-				// 	$(newModule).find('#bucket_img').attr('src', 'img/buckets/water.png');
-				// }
-				// if ($(this).attr('fluid_type') == 'Lava') {
-				// 	$(newModule).find('#bucket_img').attr('src', 'img/buckets/lava.png');
-				// }
-				// if ($(this).attr('fluid_type') == 'Destabilized Redstone') {
-				// 	$(newModule).find('#bucket_img').attr('src', 'img/buckets/redstone.png');
-				// }
 
 				var node = $(this);
 				$(newModule).find('#remove_link').click(function(e) {
@@ -82,10 +68,7 @@ function loadModules(template) {
 					e.preventDefault();
 				});
 
-
-
 				$('#connected_modules').append($(newModule));
-
 
 				if (!active) {
 					$(newModule).find('div.energy_module_block').block({

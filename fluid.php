@@ -15,7 +15,18 @@
   ga('create', 'UA-66224425-1', 'auto');
   ga('send', 'pageview');
 
-</script>
+  </script>
+  
+  <script src="js/vendor/jquery.js"></script>
+  <script src="js/foundation.min.js"></script>
+  <script>
+    $(document).foundation();
+  </script>
+  <script src="js/login_check.js"></script>
+  <script src="js/block.js"></script>
+  <script src="js/fluid.js"></script>
+
+
   </head>
   <body>
 
@@ -164,14 +175,6 @@
         </div>
       </footer>
 
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-    <script src="js/login_check.js"></script>
-    <script src="js/block.js"></script>
-    <script src="js/fluid.js"></script>
 
   </body>
 </html>

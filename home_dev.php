@@ -16,16 +16,8 @@
   ga('send', 'pageview');
 
 </script>
-  <script src="js/vendor/jquery.js"></script>
-  <script src="js/foundation.min.js"></script>
-  <script>
-    $(document).foundation();
-  </script>
-  <script src="js/login_check.js"></script>
-  <script src="js/block.js"></script>
-  <script src="js/redstone.js"></script>
-</head>
-<body>
+  </head>
+  <body>
 
       <div class="large-12 columns top_bar">
           <div class="row">
@@ -47,7 +39,7 @@
           <div id='cssmenu'>
             <ul>
               <li><a href='index.php'><span>Homepage</span></a></li>
-              <li><a href='home.php'><span>My Dashboard</span></a></li>
+              <li class='active'><a href='home.php'><span>My Dashboard</span></a></li>
               <li><a href='setup.php'><span>Setup Instructions</span></a></li>
              </ul>
           </div>
@@ -65,7 +57,7 @@
           <div id='cssmenu'>
 
              <ul>
-               <li class='active'><a href='redstone.php'><span>Redstone Controls</span></a></li>
+               <li><a href='redstone.php'><span>Redstone Controls</span></a></li>
                <li><a href='rednet.php'><span>Rednet Controls</span></a></li>
                <li><a href='bigreactors.php'><span>BigReactors Control</span></a></li>
                </ul>
@@ -82,55 +74,108 @@
       </div>
 
 
-        <div class="large-9 columns">
-          <div class="module_header">
-            <h3 style="color:#0099FF">Connected redstone modules:</h3>
-            In-game modules update every 30 seconds.<p>
+      <div class="large-9 columns">
+        <div class="row">
+
+          <div id='cssmenu'>
+          <ul>
+             <li class='active'><a href='index.html'>Home</a></li>
+             <li><a href='#'>Products</a></li>
+             <li><a href='#'>About</a></li>
+             <li><a href='#'>Contact</a></li>
+          </ul>
           </div>
 
-        	<ul id="connected_modules">
 
-			     </ul>
+        <h3 style="color:#0099FF" id="welcome"></h3>
+        <span style="font-weight:bold;font-size:16px;color:red">For bug reports, suggestions and questions <a href="https://github.com/jaranvil/CraftNanny/issues">post here</a></span>
 
-           <div class="no_connected_modules">
-             <h3 style="color:#0099FF">Redstone Modules</h3>
-             <h4 style="color:#CC0000;font-weight:bold;">There are no redstone modules connected to this account. Setup instructions are available <a href="setup.php">here</a>
-           </h4>
-             <!-- <div class="row">
-               <div class="large-6 columns">
-                 <h4>What it does</h4>
-                 <ul>
-                   <li>Logs players that enter/leave its range</li>
-                   <li>Records changes in inventory while player is in range</li>
-                 </ul>
-               </div>
-               <div class="large-6 columns">
-                 <h4>Setup</h4>
-                 <ul>
-                   <li>
-                     Place advanced computer with </strong>openperipheral sensor on top.</strong>
-                   </li>
-                   <li>
-                     Run module installer <a href="setup.php">from here.</a>
-                   </li>
-                 </ul>
+          <!--<div class="large-12 columns notifications" id="">
+             <strong style="color:#0099FF">Active Rules:</strong>
+             <p>
+             Coming soon.
+             Examples: energy storage reaches 0%, set redstone module output
+          </div>
+        </div>
+        <p>
+  		  <div class="row">
+          <div class="large-12 columns notifications" id="">
+             <strong style="color:#0099FF">Email Notifications:</strong>
+             <p>
+             Coming soon.
+             Set email alerts for certain events. Energy or fluid reach x% or player x enters base.
+          </div>
+        </div>-->
+        <p>
+    <div class="row">
+      <div class="large-12 columns notifications">
+        <label style="color:#1b9bff;font-size:18px;font-weight:bold;">Redstone Events</label>
+        <div class="rules_container" id="active_events" >
+          <div class="no_events" style="text-align:center;color:#666666;font-weight:bold;width:100%">
+            No active redstone events. <a href="redstone_events.php">Create one.</a><p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-               </div>
-             </div>
-             <div class="row">
-               <div class="large-6 columns">
-                 <img src="img/mods/player.png">
+        <p>
 
-                </div>
-               <div class="large-6 columns">
-                 <img src="img/screenshots/tracking.PNG">
-                </div>
-             </div> -->
-           </div>
+  		  <div class="row">
+        <div class="large-4 columns modules" id="sensor_modules">
+           <strong style="color:#0099FF">Player Modules:</strong>
+           <div class="no_modules" id="no_player_modules">
+            <span>No Player Modules Connected</span>
+          </div>
+        </div>
+
+        <div class="large-4 columns modules" id="energy_modules">
+          <strong style="color:#0099FF">Energy Modules:</strong>
+          <div class="no_modules" id="no_energy_modules">
+            <span>No Energy Modules Connected</span>
+          </div>
+        </div>
+
+        <div class="large-4 columns modules" id="fluid_modules">
+          <strong style="color:#0099FF">Fluid Modules:</strong>
+          <div class="no_modules" id = "no_fluid_modules">
+            <span>No Fluid Modules Connected</span>
+          </div>
+         </div>
+
+        </div>
+
+        <p>
+
+       <div class="row">
+        <div class="large-4 columns modules" id="redstone_modules">
+           <strong style="color:#0099FF">Redstone Modules:</strong>
+           <div class="no_modules" id="no_redstone_modules">
+            <span>No Redstone Modules Connected</span>
+          </div>
+        </div>
+
+        <div class="large-4 columns modules" id="energy_modules">
+          <strong style="color:#0099FF">Rednet Modules</strong>
+          <div class="no_modules" id="no_player_modules">
+            <span>No Rednet Modules Connected</span>
+          </div>
+        </div>
+
+        <div class="large-4 columns">
+         <!--<strong style="color:#0099FF">stub</strong>-->
+         </div>
+
+        </div>
+
+
+
+
+
 
         </div>
       </div>
 
+      </div>
       <footer>
         <div class="large-12 columns footer_top">
           <div class="row">
@@ -174,7 +219,13 @@
         </div>
       </footer>
 
-
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="js/login_check.js"></script>
+    <script src="js/home.js"></script>
 
   </body>
 </html>

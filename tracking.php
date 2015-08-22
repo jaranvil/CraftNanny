@@ -16,6 +16,16 @@
   ga('send', 'pageview');
 
 </script>
+
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+    <script src="js/login_check.js"></script>
+    <script src="js/tracking.js"></script>
+
+
   </head>
   <body>
 
@@ -80,7 +90,7 @@
      <h3 style="color:#0099FF">Connected player modules:</h3>
      Module Online/Offline status acurate within 1-2 minutes.<br>
      Player logs limited to the most recent 50 records per player per sensor. (for now)<br>
-     <span style="color:red;font-wright:bold">NOTE: inventory tracking is not working yet.</span>
+     
      <hr>
      </div>
       <ul id="log">
@@ -171,14 +181,6 @@
         </div>
       </footer>
 
-
-    <script src="js/vendor/jquery.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script>
-      $(document).foundation();
-    </script>
-    <script src="js/login_check.js"></script>
-    <script src="js/tracking.js"></script>
 
   </body>
 </html>

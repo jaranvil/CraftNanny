@@ -8,7 +8,7 @@ var $blankScanner,
 
 function initPage() {
 	var visitor_template,
-		vist_template;
+			vist_template;
 
 	user_id = token;
 
@@ -40,8 +40,7 @@ function initPage() {
 	$blankVisior = $(vist_template);
 
 	logs($blankScanner, $blankVisior);
-	
-	formatDate();
+
 }
 
 function getUser() {
@@ -95,7 +94,7 @@ function logs(scanner, visitor) {
 
 
 				$(newScanner).find('#scanner_title').text(" " + $(this).find('name').attr('name')+" - Recent Visitors:");
-				
+
 				if ($(this).find('name').attr('active') == '1') {
 					$(newScanner).find('#status_img').attr('src', 'img/online.png');
 				}
@@ -105,7 +104,7 @@ function logs(scanner, visitor) {
 					var newVisitor = visitor.clone(true),
 						record = $(this);
 					$(newVisitor).find('#player_name').text($(this).attr('ign'));
-					$(newVisitor).find('#last_seen').text(" Last Seen: " + formatDate($(this).attr('last_seen')));
+				//	$(newVisitor).find('#last_seen').text(" Last Seen: " + formatDate($(this).attr('last_seen')));
 					$(newVisitor).find('#player_avatar').attr('src', 'https://mcapi.ca/avatar/2d/'+$(this).attr('ign')+'/45');
 
 					$(newVisitor).find('#detailsBtn').click(function(e) {
@@ -116,6 +115,13 @@ function logs(scanner, visitor) {
 
 					$('#log').append($(newVisitor));
 				});
+
+				// var node = $(this);
+				// $((newScanner).find('#remove_link').click(function(e) {
+				// // 	if (removeModule($(node).attr('token'))) {
+				// // 		//location.reload();
+				// // 	}
+				// });
 
 				$('.vist_details').hide();
 				$('#log').append("<p>");
@@ -162,9 +168,41 @@ function playerRecord(player, token, element) {
 	});
 }
 
+
+function removeModule(token) {
+	var result = false;
+	if (confirm('Are you sure you want to delete this module?')) {
+		theParams = {
+			a: 'remove_module',
+			token: token
+		}
+
+		$.ajax({
+			type: "POST",
+			url: "code/main.php",
+			data: theParams,
+			dataType: 'xml',
+			async: false,
+			success: function(xml) {
+				//alert((new XMLSerializer()).serializeToString(xml));
+				result = true;
+			},
+			error: function(xhr) {
+			  //alert(xhr.responseText);
+
+			}
+		});
+	}
+	return result;
+}
+
 function formatDate (date) {
 	var input = new Date(date);
-	var now = new Date();
+	var now = new Date()
+
+	var UtcNow = Math.round(now.getTime() + (240*60*1000));
+	alert(UtcNow);
+
 
 	var timeDiff = now.getTime() - input.getTime();
 	var secDiff = Math.round(timeDiff/1000);
@@ -188,7 +226,7 @@ function formatDate (date) {
 		}
 		return hourDiff + " hours ago";
 	} else {
-		return date;
+		return date + " EST";
 	}
 }
 
