@@ -116,12 +116,13 @@ function logs(scanner, visitor) {
 					$('#log').append($(newVisitor));
 				});
 
-				// var node = $(this);
-				// $((newScanner).find('#remove_link').click(function(e) {
-				// // 	if (removeModule($(node).attr('token'))) {
-				// // 		//location.reload();
-				// // 	}
-				// });
+				var node = $(this);
+				$(newScanner).find('#remove_link').click(function(e) {
+					e.preventDefault();
+					if (removeModule($(node).find('name').attr('token'))) {
+						location.reload();
+					}
+				});
 
 				$('.vist_details').hide();
 				$('#log').append("<p>");

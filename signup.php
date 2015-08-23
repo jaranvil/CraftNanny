@@ -42,7 +42,7 @@
     
         <div class="large-9 columns">
           <h1>Create Account</h1>
-          <span style="font-weight:bold;font-size:16px;color:red">NOTE: CraftNanny is VERY early in development. Most features aren't setup fully yet. Only create an account if you want to be a tester.</span>
+          <span style="font-weight:bold;font-size:16px;color:red">NOTE: CraftNanny is early in development. There are a couple missing features and many improvements to be made. </span>
           <p>
           <input type="text" class="create_user_input" name="username" id="username" placeholder="Username" style="background-color:#444444;color:#ffffff;width:300px;"/>
           <input type="text"  name="email" id="email" placeholder="E-mail (optional)" class="create_user_input" style="width:300px;background-color:#444444;color:#ffffff"/>

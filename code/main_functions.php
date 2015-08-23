@@ -174,6 +174,7 @@ function getLogs($dbconn, $xmlDoc, $user_id) {
 		$theScannerNode = $xmlDoc->createElement('scanner');
 			$nameNode = $xmlDoc->createElement('name');
 			$nameNode->setAttribute('name', $row['computer_name']);
+			$nameNode->setAttribute('token', $row['token']);
 			$datetime1 = strtotime($row['last_seen']);
 			$datetime2 = time();
 			$diff = $datetime2-$datetime1;
