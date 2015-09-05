@@ -1,11 +1,9 @@
 -----------------PASTEBINs--------------------------
 installer = "Q8ah3K9S"
-
 player_module = "rWp0GXDW"
 redstone_module = "KkCYWkSU"
 fluid_module = "x7K3zUAC"
 energy_module = "RxLuZWHp"
-
 hash_api = "FLQ68J88"
 startup = "KnmEN37h"
 ---------------------------------------------
@@ -16,6 +14,49 @@ local username = ''
 local type = ''
 local updating = false
 local user = ''
+
+-- Alternative (and much more versatile) function than "pastebin get"
+local function getPaste(id, filename)
+    local site = http.get("http://pastebin.com/raw.php?i="..id)
+    local content = site.readAll()
+    if content then
+        local file = fs.open(filename, "w")
+        file.write(content)
+        file.close()
+    else
+        -- Unable to connect to Pastebin for whatever reason
+        error("Unable to contact Pastebin!")
+    end
+end
+
+--[[Even better installation function that installs all files
+    You'd just need to define which computer is using which module
+    or find a way to have each computer use all modules at once
+    It is possible, I guarantee it.
+    Remove brackets to enable
+local function getFiles()
+    local files = {
+        installer = "Q8ah3K9S",
+        player_module = "rWp0GXDW",
+        redstone_module = "KkCYWkSU",
+        fluid_module = "x7K3zUAC",
+        energy_module = "RxLuZWHp",
+        hash_api = "FLQ68J88",
+        startup = "KnmEN37h"
+    }
+    for i, v in pairs(files) do
+        local site = http.get("http://pastebin.com/raw.php?i="..v)
+        local content = site.readAll()
+        if content then
+            local file = fs.open(i, "w")
+            file.write(content)
+            file.close()
+        else
+            -- Unable to connect
+        end
+    end
+end
+]]
 
 function draw_text_term(x, y, text, text_color, bg_color)
     term.setTextColor(text_color)
@@ -87,7 +128,8 @@ function install_module()
 	draw_text_term(1, 6, 'fetch from pastebin', colors.white, colors.black)
 	term.setCursorPos(1,7)
 	term.setTextColor(colors.white)
-    shell.run("pastebin get "..pastebin.." CN_module")
+    getPaste(pastebin, "CN_module")
+    
     sleep(0.5)
   
     draw_text_term(1, 9, 'create startup file', colors.white, colors.black)
@@ -96,7 +138,7 @@ function install_module()
     if fs.exists("startup") then
         fs.delete("startup")
     end
-    shell.run("pastebin get "..startup.." startup")
+    getPaste(startup, "startup")
     sleep(1)
   
     draw_text_term(1, 13, 'Setup Complete', colors.lime, colors.black)
@@ -113,7 +155,7 @@ function install_module()
 end
 
 function hash(password)
-	shell.run("pastebin get "..hash_api.." sha1_api")
+	getPaste(hash_api, "sha1_api")
 	os.loadAPI('sha1_api')
 	response = http.post(
         "http://craftnanny.org/code/salt.php",
