@@ -1,6 +1,3 @@
-
-
-
 -----------------PASTEBINs--------------------------
 installer = "Q8ah3K9S"
 
@@ -21,10 +18,10 @@ local updating = false
 local user = ''
 
 function draw_text_term(x, y, text, text_color, bg_color)
-  term.setTextColor(text_color)
-  term.setBackgroundColor(bg_color)
-  term.setCursorPos(x,y)
-  write(text)
+    term.setTextColor(text_color)
+    term.setBackgroundColor(bg_color)
+    term.setCursorPos(x,y)
+    write(text)
 end
 
 function draw_line_term(x, y, length, color)
@@ -42,25 +39,25 @@ end
 
 -- saves current token variable to local text file
 function save_config()
-  sw = fs.open("config.txt", "w")   
+    sw = fs.open("config.txt", "w")   
     sw.writeLine(token)
 	sw.writeLine(module_name)
 	sw.writeLine(username)
 	sw.writeLine(type)
-  sw.close()
+    sw.close()
 end
 
 function load_config()
-  sr = fs.open("config.txt", "r")
+    sr = fs.open("config.txt", "r")
     token = sr.readLine()
 	module_name = sr.readLine()
 	username = sr.readLine()
 	type = sr.readLine()
-  sr.close()
+    sr.close()
 end
 
 function launch_module()
-  shell.run("CN_module")
+    shell.run("CN_module")
 end
 
 function install_module()
@@ -86,44 +83,44 @@ function install_module()
 	
 	draw_text_term(1, 5, 'removing old versions', colors.white, colors.black)
 	if fs.exists("CN_module") then
-	  fs.delete("CN_module")
+	    fs.delete("CN_module")
 	end
 	sleep(0.5)
 	
 	draw_text_term(1, 6, 'fetch from pastebin', colors.white, colors.black)
 	term.setCursorPos(1,7)
 	term.setTextColor(colors.white)
-  shell.run("pastebin get "..pastebin.." CN_module")
-  sleep(0.5)
+    shell.run("pastebin get "..pastebin.." CN_module")
+    sleep(0.5)
   
-  draw_text_term(1, 9, 'create startup file', colors.white, colors.black)
+    draw_text_term(1, 9, 'create startup file', colors.white, colors.black)
 	term.setCursorPos(1,10)
 	term.setTextColor(colors.white)
-  if fs.exists("startup") then
-    fs.delete("startup")
-  end
-  shell.run("pastebin get "..startup.." startup")
-  sleep(1)
+    if fs.exists("startup") then
+        fs.delete("startup")
+    end
+    shell.run("pastebin get "..startup.." startup")
+    sleep(1)
   
-  draw_text_term(1, 13, 'Setup Complete', colors.lime, colors.black)
+    draw_text_term(1, 13, 'Setup Complete', colors.lime, colors.black)
 
-  draw_text_term(1, 14, 'press enter to continue', colors.lightGray, colors.black)
-  
-  if updating then
-  
-  else
-  	input = read()
-  end
-  
-  launch_module()
+    draw_text_term(1, 14, 'press enter to continue', colors.lightGray, colors.black)
+
+    if updating then
+
+    else
+        input = read()
+    end
+
+    launch_module()
 end
 
 function hash(password)
 	shell.run("pastebin get "..hash_api.." sha1_api")
 	os.loadAPI('sha1_api')
 	response = http.post(
-                "http://craftnanny.org/code/salt.php",
-                "user="..user)
+        "http://craftnanny.org/code/salt.php",
+        "user="..user)
 	salt = response.readAll()
 	hash = sha1_api.sha1(salt..password)
 	return hash
@@ -145,8 +142,8 @@ function login()
 	password = hash(pass)
 	
 	response = http.post(
-                "http://craftnanny.org/code/signin.php",
-                "user="..user.."&pass="..password.."&id="..os.getComputerID().."&name="..module_name.."&module_type="..type)
+        "http://craftnanny.org/code/signin.php",
+        "user="..user.."&pass="..password.."&id="..os.getComputerID().."&name="..module_name.."&module_type="..type)
 	token = response.readAll()
 
 	if token == 'error' then
@@ -221,14 +218,14 @@ function install_select()
 end
 
 function start()
-  term.clear()
-  if fs.exists("config.txt") then
-  	load_config()
-	updating = true
-    install_module()
-  else
-    install_select()
-  end
+    term.clear()
+    if fs.exists("config.txt") then
+        load_config()
+        updating = true
+        install_module()
+    else
+        install_select()
+    end
 end
 
 start()

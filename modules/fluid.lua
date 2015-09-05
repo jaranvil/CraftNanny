@@ -17,10 +17,10 @@ local type = ''
 
 -- write text to the terminal screen
 function draw_text_term(x, y, text, text_color, bg_color)
-  term.setTextColor(text_color)
-  term.setBackgroundColor(bg_color)
-  term.setCursorPos(x,y)
-  write(text)
+    term.setTextColor(text_color)
+    term.setBackgroundColor(bg_color)
+    term.setCursorPos(x,y)
+    write(text)
 end
 
 -- draw a line on the terminal screen
@@ -52,22 +52,22 @@ end
 
 -- retrieves token from local text file
 function load_config()
-  sr = fs.open("config.txt", "r")
+    sr = fs.open("config.txt", "r")
     token = sr.readLine()
 	module_name = sr.readLine()
 	username = sr.readLine()
 	type = sr.readLine()
-  sr.close()
+    sr.close()
 end
 
 -- called for new installations and when the scanner needs to be updated
 function run_installer()
-	if fs.exists("install") then
-	    fs.delete("install")
-	  end
-	  shell.run("pastebin get "..installer.." install")
-	  sleep(1)
-	  shell.run("install")
+    if fs.exists("install") then
+        fs.delete("install")
+    end
+    shell.run("pastebin get "..installer.." install")
+    sleep(1)
+    shell.run("install")
 end
 
 
@@ -76,11 +76,11 @@ end
 
 function phone_home(tank_name, fluid_type, percent)
     response = http.post("http://craftnanny.org/code/fluid.php",
-    			"token="..token.."&id="..os.getComputerID().."&tank_name="..tank_name.."&fluid_type="..fluid_type.."&percent="..percent)		
+        "token="..token.."&id="..os.getComputerID().."&tank_name="..tank_name.."&fluid_type="..fluid_type.."&percent="..percent)		
 	return_string = response.readAll()
 	
 	if tonumber(return_string) > version then
-			run_installer()
+        run_installer()
 	end
 end
 
@@ -110,25 +110,25 @@ function findSide()
 end
 
 function round(num, idp)
-  local mult = 10^(idp or 0)
-  return math.floor(num * mult + 0.5) / mult
+    local mult = 10^(idp or 0)
+    return math.floor(num * mult + 0.5) / mult
 end
 
 function getTankInformation(t,tankName)
-				tnk=peripheral.wrap(t)
-				tankTbl=tnk.getTankInfo()
-				capacity=tankTbl[1].capacity
-				contentsTbl=tankTbl[1].contents or {["rawName"]="nothing",["amount"]=0}
-				tankContentName=contentsTbl.rawName
-				tankContentAmount=contentsTbl.amount
-				percent=round((tankContentAmount/capacity*100),2)
-				
-				--print(tankName," ",tankContentName," ",percent," %        ")
-				phone_home(tankName, tankContentName, percent)
+    tnk=peripheral.wrap(t)
+    tankTbl=tnk.getTankInfo()
+    capacity=tankTbl[1].capacity
+    contentsTbl=tankTbl[1].contents or {["rawName"]="nothing",["amount"]=0}
+    tankContentName=contentsTbl.rawName
+    tankContentAmount=contentsTbl.amount
+    percent=round((tankContentAmount/capacity*100),2)
+    
+    --print(tankName," ",tankContentName," ",percent," %        ")
+    phone_home(tankName, tankContentName, percent)
 end
 
 function notanks()
-	-- relavent error msg
+	-- relevent error msg
 end
 
 
@@ -167,17 +167,12 @@ function start()
 	term.clear()
 	term.setCursorPos(1,1)
 	
-  if fs.exists("config.txt") then
-      load_config()
-	  start_loop()
-  else
-  	  run_installer()
-  end
+    if fs.exists("config.txt") then
+        load_config()
+        start_loop()
+    else
+        run_installer()
+    end
 end
 
 start()
-
-
-
-
-
