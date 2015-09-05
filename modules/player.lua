@@ -20,7 +20,7 @@ local time = 0
 local token = '0'
 -- this scanners name
 local scanner = ''
--- owenrs username on website
+-- oweners username on website
 local username = ''
 -- currently installed version
 local version = 2
@@ -58,7 +58,7 @@ function scanner_screen()
 	draw_text_term(8, 3, username, colors.white, colors.black)
 	draw_text_term(1, 4 , string.rep("-", 51), colors.lime, colors.black)
 	
-	-- scanning graphuc
+	-- scanning graphic
 	heart = heart + 1
 	draw_text_term(3, 10, 'Scanning ', colors.red, colors.black)
 	draw_text_term(12, 10 , string.rep(".", heart), colors.red, colors.black)

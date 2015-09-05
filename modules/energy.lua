@@ -43,15 +43,12 @@ end
 
 function terminal_screen()
 	term.clear()
-
 	bars()
 	draw_text_term(1, 2, 'Module: ', colors.lime, colors.black)
 	draw_text_term(10, 2, module_name, colors.white, colors.black)
 	draw_text_term(1, 3, 'Owner: ', colors.lime, colors.black)
 	draw_text_term(8, 3, username, colors.white, colors.black)
 	draw_text_term(1, 4 , string.rep("-", 51), colors.lime, colors.black)
-
-
 end
 
 -- retrieves token from local text file
@@ -161,10 +158,7 @@ function start_loop()
     if not ok then
         nostorage()
     end
-
     bats = peripheral.getNames()
-
-
     while true do
         terminal_screen()
 

@@ -63,15 +63,12 @@ end
 function install_module()
 	if type == '1' then
 		pastebin = player_module
-	else if type == '2' then
+	elseif type == '2' then
 		pastebin = energy_module
-	else if type == '3' then
+	elseif type == '3' then
 		pastebin = fluid_module
-	else if type == '4' then
+	elseif type == '4' then
 		pastebin = redstone_module
-	end
-	end
-	end
 	end
 	
 	term.clear()
@@ -179,23 +176,18 @@ end
 function choose_module(input) 
 	if input == '1' then
 		player_tracker()
-	else if input == '2' then
+	elseif input == '2' then
 		type = '2'
 		name()
-	else if input == '3' then
+	elseif input == '3' then
 		type = '3'
 		name()
-	else if input == '4' then
+	elseif input == '4' then
 		type = '4'
 		name()
-	else if input == '5' then
+	elseif input == '5' then
 	
 	end
-	end
-	end
-	end
-	end
-	
 end
 
 function install_select()

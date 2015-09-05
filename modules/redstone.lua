@@ -111,44 +111,24 @@ function phone_home()
 	return_string = response.readAll()
 	
 	result_array = string.split(return_string,",")
-	current_version = result_array[1]
+	current_version = tonumber(result_array[1])
 	
 	if tonumber(result_array[2]) == 1 then
 		rs.setOutput('top', true)
 		top = 'true'
-	else
-		rs.setOutput('top', false)
-		top = 'false'
-	end
-	if tonumber(result_array[3]) == 1 then
+	elseif tonumber(result_array[3]) == 1 then
 		rs.setOutput('bottom', true)
 		bottom = 'true'
-	else
-		rs.setOutput('bottom', false)
-		bottom = 'false'
-	end
-	if tonumber(result_array[4]) == 1 then
+	elseif tonumber(result_array[4]) == 1 then
 		rs.setOutput('back', true)
 		back = 'true'
-	else
-		rs.setOutput('back', false)
-		back = 'false'
-	end
-	if tonumber(result_array[5]) == 1 then
+	elseif tonumber(result_array[5]) == 1 then
 		rs.setOutput('front', true)
 		front = 'true'
-	else
-		rs.setOutput('front', false)
-		front = 'false'
-	end
-	if tonumber(result_array[6]) == 1 then
+	elseif tonumber(result_array[6]) == 1 then
 		rs.setOutput('left', true)
 		left = 'true'
-	else
-		rs.setOutput('left', false)
-		left = 'false'
-	end
-	if tonumber(result_array[7]) == 1 then
+	elseif tonumber(result_array[7]) == 1 then
 		rs.setOutput('right', true)
 		right = 'true'
 	else
@@ -156,38 +136,23 @@ function phone_home()
 		right = 'false'
 	end
 
-	if tonumber(current_version) > version then
-			run_installer()
+	if current_version > version then
+        run_installer()
 	end
 end
 
 function getInputs()
 	if rs.getInput('top') then
 		top_input = 1
-	else
-		top_input = 0
-	end
-	if rs.getInput('bottom') then
+	elseif rs.getInput('bottom') then
 		bottom_input = 1
-	else
-		bottom_input = 0
-	end
-	if rs.getInput('front') then
+	elseif rs.getInput('front') then
 		front_input = 1
-	else
-		front_input = 0
-	end
-	if rs.getInput('back') then
+	elseif rs.getInput('back') then
 		back_input = 1
-	else
-		back_input = 0
-	end
-	if rs.getInput('left') then
+	elseif rs.getInput('left') then
 		left_input = 1
-	else
-		left_input = 0
-	end
-	if rs.getInput('right') then
+	elseif rs.getInput('right') then
 		right_input = 1
 	else
 		right_input = 0
