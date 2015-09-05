@@ -56,6 +56,11 @@ local function getFiles()
         end
     end
 end
+
+Alternatively, you can host all of these files on Github, and retrieve them from it too.
+Use "https://raw.githubusercontent.com/jaranvil/CraftNanny/master/modules/"..filename
+instead of "http://pastebin.com/raw.php?i="..pasteID
+to retrieve them. It's very nice to do it that way, considering you can set up an automatic updater.
 ]]
 
 function draw_text_term(x, y, text, text_color, bg_color)
