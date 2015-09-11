@@ -18,8 +18,7 @@
 </script>
   </head>
   <body>
-    
-    
+
         <div class="large-12 columns top_bar">
           <div class="row">
            <span style="font-weight:bold;font-size:36px;color:#1b9bff">
