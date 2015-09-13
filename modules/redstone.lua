@@ -28,10 +28,10 @@ local right_input = 0
 
 -- write text to the terminal screen
 function draw_text_term(x, y, text, text_color, bg_color)
-  term.setTextColor(text_color)
-  term.setBackgroundColor(bg_color)
-  term.setCursorPos(x,y)
-  write(text)
+    term.setTextColor(text_color)
+    term.setBackgroundColor(bg_color)
+    term.setCursorPos(x,y)
+    write(text)
 end
 
 -- draw a line on the terminal screen
@@ -68,22 +68,22 @@ end
 
 -- retrieves token from local text file
 function load_config()
-  sr = fs.open("config.txt", "r")
+    sr = fs.open("config.txt", "r")
     token = sr.readLine()
 	module_name = sr.readLine()
 	username = sr.readLine()
 	type = sr.readLine()
-  sr.close()
+    sr.close()
 end
 
 -- called for new installations and when the scanner needs to be updated
 function run_installer()
 	if fs.exists("install") then
-	    fs.delete("install")
-	  end
-	  shell.run("pastebin get "..installer.." install")
-	  sleep(1)
-	  shell.run("install")
+        fs.delete("install")
+    end
+    shell.run("pastebin get "..installer.." install")
+    sleep(1)
+    shell.run("install")
 end
 
 
@@ -91,64 +91,44 @@ end
 
 
 function string:split(delimiter)
-  local result = { }
-  local from  = 1
-  local delim_from, delim_to = string.find( self, delimiter, from  )
-  while delim_from do
-    table.insert( result, string.sub( self, from , delim_from-1 ) )
-    from  = delim_to + 1
-    delim_from, delim_to = string.find( self, delimiter, from  )
-  end
-  table.insert( result, string.sub( self, from  ) )
-  return result
+    local result = { }
+    local from  = 1
+    local delim_from, delim_to = string.find( self, delimiter, from  )
+    while delim_from do
+        table.insert( result, string.sub( self, from , delim_from-1 ) )
+        from  = delim_to + 1
+        delim_from, delim_to = string.find( self, delimiter, from  )
+    end
+    table.insert( result, string.sub( self, from  ) )
+    return result
 end
 
 function phone_home()
 	getInputs()
 
     response = http.post("http://craftnanny.org/code/redstone.php",
-    			"token="..token.."&id="..os.getComputerID().."&top_input="..top_input.."&bottom_input="..bottom_input.."&front_input="..front_input.."&back_input="..back_input.."&left_input="..left_input.."&right_input="..right_input)		
+        "token="..token.."&id="..os.getComputerID().."&top_input="..top_input.."&bottom_input="..bottom_input.."&front_input="..front_input.."&back_input="..back_input.."&left_input="..left_input.."&right_input="..right_input)		
 	return_string = response.readAll()
 	
 	result_array = string.split(return_string,",")
-	current_version = result_array[1]
+	current_version = tonumber(result_array[1])
 	
 	if tonumber(result_array[2]) == 1 then
 		rs.setOutput('top', true)
 		top = 'true'
-	else
-		rs.setOutput('top', false)
-		top = 'false'
-	end
-	if tonumber(result_array[3]) == 1 then
+	elseif tonumber(result_array[3]) == 1 then
 		rs.setOutput('bottom', true)
 		bottom = 'true'
-	else
-		rs.setOutput('bottom', false)
-		bottom = 'false'
-	end
-	if tonumber(result_array[4]) == 1 then
+	elseif tonumber(result_array[4]) == 1 then
 		rs.setOutput('back', true)
 		back = 'true'
-	else
-		rs.setOutput('back', false)
-		back = 'false'
-	end
-	if tonumber(result_array[5]) == 1 then
+	elseif tonumber(result_array[5]) == 1 then
 		rs.setOutput('front', true)
 		front = 'true'
-	else
-		rs.setOutput('front', false)
-		front = 'false'
-	end
-	if tonumber(result_array[6]) == 1 then
+	elseif tonumber(result_array[6]) == 1 then
 		rs.setOutput('left', true)
 		left = 'true'
-	else
-		rs.setOutput('left', false)
-		left = 'false'
-	end
-	if tonumber(result_array[7]) == 1 then
+	elseif tonumber(result_array[7]) == 1 then
 		rs.setOutput('right', true)
 		right = 'true'
 	else
@@ -156,38 +136,23 @@ function phone_home()
 		right = 'false'
 	end
 
-	if tonumber(current_version) > version then
-			run_installer()
+	if current_version > version then
+        run_installer()
 	end
 end
 
 function getInputs()
 	if rs.getInput('top') then
 		top_input = 1
-	else
-		top_input = 0
-	end
-	if rs.getInput('bottom') then
+	elseif rs.getInput('bottom') then
 		bottom_input = 1
-	else
-		bottom_input = 0
-	end
-	if rs.getInput('front') then
+	elseif rs.getInput('front') then
 		front_input = 1
-	else
-		front_input = 0
-	end
-	if rs.getInput('back') then
+	elseif rs.getInput('back') then
 		back_input = 1
-	else
-		back_input = 0
-	end
-	if rs.getInput('left') then
+	elseif rs.getInput('left') then
 		left_input = 1
-	else
-		left_input = 0
-	end
-	if rs.getInput('right') then
+	elseif rs.getInput('right') then
 		right_input = 1
 	else
 		right_input = 0
@@ -217,17 +182,12 @@ function start()
 	term.clear()
 	term.setCursorPos(1,1)
 	
-  if fs.exists("config.txt") then
-      load_config()
-	  start_loop()
-  else
-  	  run_installer()
-  end
+    if fs.exists("config.txt") then
+        load_config()
+        start_loop()
+    else
+        run_installer()
+    end
 end
 
 start()
-
-
-
-
-

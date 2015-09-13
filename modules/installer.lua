@@ -1,14 +1,9 @@
-
-
-
 -----------------PASTEBINs--------------------------
 installer = "Q8ah3K9S"
-
 player_module = "rWp0GXDW"
 redstone_module = "KkCYWkSU"
 fluid_module = "x7K3zUAC"
 energy_module = "RxLuZWHp"
-
 hash_api = "FLQ68J88"
 startup = "KnmEN37h"
 ---------------------------------------------
@@ -20,11 +15,59 @@ local type = ''
 local updating = false
 local user = ''
 
+-- Alternative (and much more versatile) function than "pastebin get"
+local function getPaste(id, filename)
+    local site = http.get("http://pastebin.com/raw.php?i="..id)
+    local content = site.readAll()
+    if content then
+        local file = fs.open(filename, "w")
+        file.write(content)
+        file.close()
+    else
+        -- Unable to connect to Pastebin for whatever reason
+        error("Unable to contact Pastebin!")
+    end
+end
+
+--[[Even better installation function that installs all files
+    You'd just need to define which computer is using which module
+    or find a way to have each computer use all modules at once
+    It is possible, I guarantee it.
+    Remove brackets to enable
+local function getFiles()
+    local files = {
+        installer = "Q8ah3K9S",
+        player_module = "rWp0GXDW",
+        redstone_module = "KkCYWkSU",
+        fluid_module = "x7K3zUAC",
+        energy_module = "RxLuZWHp",
+        hash_api = "FLQ68J88",
+        startup = "KnmEN37h"
+    }
+    for i, v in pairs(files) do
+        local site = http.get("http://pastebin.com/raw.php?i="..v)
+        local content = site.readAll()
+        if content then
+            local file = fs.open(i, "w")
+            file.write(content)
+            file.close()
+        else
+            -- Unable to connect
+        end
+    end
+end
+
+Alternatively, you can host all of these files on Github, and retrieve them from it too.
+Use "https://raw.githubusercontent.com/jaranvil/CraftNanny/master/modules/"..filename
+instead of "http://pastebin.com/raw.php?i="..pasteID
+to retrieve them. It's very nice to do it that way, considering you can set up an automatic updater.
+]]
+
 function draw_text_term(x, y, text, text_color, bg_color)
-  term.setTextColor(text_color)
-  term.setBackgroundColor(bg_color)
-  term.setCursorPos(x,y)
-  write(text)
+    term.setTextColor(text_color)
+    term.setBackgroundColor(bg_color)
+    term.setCursorPos(x,y)
+    write(text)
 end
 
 function draw_line_term(x, y, length, color)
@@ -42,39 +85,36 @@ end
 
 -- saves current token variable to local text file
 function save_config()
-  sw = fs.open("config.txt", "w")   
+    sw = fs.open("config.txt", "w")   
     sw.writeLine(token)
 	sw.writeLine(module_name)
 	sw.writeLine(username)
 	sw.writeLine(type)
-  sw.close()
+    sw.close()
 end
 
 function load_config()
-  sr = fs.open("config.txt", "r")
+    sr = fs.open("config.txt", "r")
     token = sr.readLine()
 	module_name = sr.readLine()
 	username = sr.readLine()
 	type = sr.readLine()
-  sr.close()
+    sr.close()
 end
 
 function launch_module()
-  shell.run("CN_module")
+    shell.run("CN_module")
 end
 
 function install_module()
 	if type == '1' then
 		pastebin = player_module
-	else if type == '2' then
+	elseif type == '2' then
 		pastebin = energy_module
-	else if type == '3' then
+	elseif type == '3' then
 		pastebin = fluid_module
-	else if type == '4' then
+	elseif type == '4' then
 		pastebin = redstone_module
-	end
-	end
-	end
 	end
 	
 	term.clear()
@@ -86,44 +126,45 @@ function install_module()
 	
 	draw_text_term(1, 5, 'removing old versions', colors.white, colors.black)
 	if fs.exists("CN_module") then
-	  fs.delete("CN_module")
+	    fs.delete("CN_module")
 	end
 	sleep(0.5)
 	
 	draw_text_term(1, 6, 'fetch from pastebin', colors.white, colors.black)
 	term.setCursorPos(1,7)
 	term.setTextColor(colors.white)
-  shell.run("pastebin get "..pastebin.." CN_module")
-  sleep(0.5)
+    getPaste(pastebin, "CN_module")
+    
+    sleep(0.5)
   
-  draw_text_term(1, 9, 'create startup file', colors.white, colors.black)
+    draw_text_term(1, 9, 'create startup file', colors.white, colors.black)
 	term.setCursorPos(1,10)
 	term.setTextColor(colors.white)
-  if fs.exists("startup") then
-    fs.delete("startup")
-  end
-  shell.run("pastebin get "..startup.." startup")
-  sleep(1)
+    if fs.exists("startup") then
+        fs.delete("startup")
+    end
+    getPaste(startup, "startup")
+    sleep(1)
   
-  draw_text_term(1, 13, 'Setup Complete', colors.lime, colors.black)
+    draw_text_term(1, 13, 'Setup Complete', colors.lime, colors.black)
 
-  draw_text_term(1, 14, 'press enter to continue', colors.lightGray, colors.black)
-  
-  if updating then
-  
-  else
-  	input = read()
-  end
-  
-  launch_module()
+    draw_text_term(1, 14, 'press enter to continue', colors.lightGray, colors.black)
+
+    if updating then
+
+    else
+        input = read()
+    end
+
+    launch_module()
 end
 
 function hash(password)
-	shell.run("pastebin get "..hash_api.." sha1_api")
+	getPaste(hash_api, "sha1_api")
 	os.loadAPI('sha1_api')
 	response = http.post(
-                "http://craftnanny.org/code/salt.php",
-                "user="..user)
+        "http://craftnanny.org/code/salt.php",
+        "user="..user)
 	salt = response.readAll()
 	hash = sha1_api.sha1(salt..password)
 	return hash
@@ -145,8 +186,8 @@ function login()
 	password = hash(pass)
 	
 	response = http.post(
-                "http://craftnanny.org/code/signin.php",
-                "user="..user.."&pass="..password.."&id="..os.getComputerID().."&name="..module_name.."&module_type="..type)
+        "http://craftnanny.org/code/signin.php",
+        "user="..user.."&pass="..password.."&id="..os.getComputerID().."&name="..module_name.."&module_type="..type)
 	token = response.readAll()
 
 	if token == 'error' then
@@ -182,23 +223,18 @@ end
 function choose_module(input) 
 	if input == '1' then
 		player_tracker()
-	else if input == '2' then
+	elseif input == '2' then
 		type = '2'
 		name()
-	else if input == '3' then
+	elseif input == '3' then
 		type = '3'
 		name()
-	else if input == '4' then
+	elseif input == '4' then
 		type = '4'
 		name()
-	else if input == '5' then
+	elseif input == '5' then
 	
 	end
-	end
-	end
-	end
-	end
-	
 end
 
 function install_select()
@@ -221,14 +257,14 @@ function install_select()
 end
 
 function start()
-  term.clear()
-  if fs.exists("config.txt") then
-  	load_config()
-	updating = true
-    install_module()
-  else
-    install_select()
-  end
+    term.clear()
+    if fs.exists("config.txt") then
+        load_config()
+        updating = true
+        install_module()
+    else
+        install_select()
+    end
 end
 
 start()

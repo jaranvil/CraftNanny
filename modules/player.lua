@@ -20,17 +20,17 @@ local time = 0
 local token = '0'
 -- this scanners name
 local scanner = ''
--- owenrs username on website
+-- oweners username on website
 local username = ''
 -- currently installed version
 local version = 2
 
 -- write text to the terminal screen
 function draw_text_term(x, y, text, text_color, bg_color)
-  term.setTextColor(text_color)
-  term.setBackgroundColor(bg_color)
-  term.setCursorPos(x,y)
-  write(text)
+    term.setTextColor(text_color)
+    term.setBackgroundColor(bg_color)
+    term.setCursorPos(x,y)
+    write(text)
 end
 
 -- draw a line on the terminal screen
@@ -58,7 +58,7 @@ function scanner_screen()
 	draw_text_term(8, 3, username, colors.white, colors.black)
 	draw_text_term(1, 4 , string.rep("-", 51), colors.lime, colors.black)
 	
-	-- scanning graphuc
+	-- scanning graphic
 	heart = heart + 1
 	draw_text_term(3, 10, 'Scanning ', colors.red, colors.black)
 	draw_text_term(12, 10 , string.rep(".", heart), colors.red, colors.black)
@@ -71,21 +71,21 @@ end
 -- called at startup if config.txt exists
 -- token is used to authorize the scanner to post to users log
 function load_config()
-  sr = fs.open("config.txt", "r")
+    sr = fs.open("config.txt", "r")
     token = sr.readLine()
 	scanner = sr.readLine()
 	username = sr.readLine()
-  sr.close()
+    sr.close()
 end
 
 -- called for new installations and when the scanner needs to be updated
 function run_installer()
-	if fs.exists("install") then
-	    fs.delete("install")
-	  end
-	  shell.run("pastebin get "..installer.." install")
-	  sleep(1)
-	  shell.run("install")
+    if fs.exists("install") then
+        fs.delete("install")
+    end
+    shell.run("pastebin get "..installer.." install")
+    sleep(1)
+    shell.run("install")
 end
 
 -- called every 30 seconds when scanner is running
@@ -93,11 +93,11 @@ end
 -- checks version and automtically updates
 function phone_home()
     response = http.post("http://craftnanny.org/code/ping.php",
-    			"token="..token.."&id="..os.getComputerID())
+        "token="..token.."&id="..os.getComputerID())
 	current_version = response.readAll()
 
 	if tonumber(current_version) > version then
-			run_installer()
+        run_installer()
 	end
 end
 
@@ -152,15 +152,11 @@ function record()
 						sleep(1)
 						
 						if snapShot2[ign]~= nil then --recoding newer inventory until player leaves.
-						snapShot2[ign]= nil
-					end
-				end		
-
+                            snapShot2[ign]= nil
+                        end
+                    end
 				end
-
-
 			end
-
 		end
 	end
 	--Cleanup
@@ -168,7 +164,6 @@ function record()
 	data={}
 	inventory={}
 	guilty=nil
-
 end
 
 -- iterate through all players with an active flag
@@ -197,14 +192,16 @@ end
 	
 -- e.g. post('tom', 2, ' has left sensor range')
 function post(ign, event, discription)  
-	        http.post("http://craftnanny.org/code/log.php",
-	        "token="..token.."&ign="..ign.."&id="..os.getComputerID().."&event="..event.."&discription="..discription)
+    http.post("http://craftnanny.org/code/log.php",
+        "token="..token.."&ign="..ign.."&id="..os.getComputerID().."&event="..event.."&discription="..discription)
 end
 
 function tablelength(T) --get real count of table
-  local count = 0
-  for _ in pairs(T) do count = count + 1 end
-  return count
+    local count = 0
+    for _ in pairs(T) do
+        count = count + 1
+    end
+    return count
 end
 
 function compare(t1,t2)
@@ -257,17 +254,12 @@ function start()
 	term.clear()
 	term.setCursorPos(1,1)
 	
-  if fs.exists("config.txt") then
-      load_config()
-	  start_recording()
-  else
-  	  run_installer()
-  end
+    if fs.exists("config.txt") then
+        load_config()
+        start_recording()
+    else
+        run_installer()
+    end
 end
 
 start()
-
-
-
-
-
