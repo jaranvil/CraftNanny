@@ -169,7 +169,6 @@ function playerRecord(player, token, element) {
 	});
 }
 
-
 function removeModule(token) {
 	var result = false;
 	if (confirm('Are you sure you want to delete this module?')) {
