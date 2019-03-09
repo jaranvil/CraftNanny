@@ -1,0 +1,16 @@
+{
+  "require":
+  {
+    "phpclasses/mydql2i": ">=1.6"
+  },
+  "repositories":
+  [
+    {
+      "type": "composer",
+      "url": "https:\/\/www.phpclasses.org\/"
+    },
+    {
+      "packagist": false
+    }
+  ]
+}
